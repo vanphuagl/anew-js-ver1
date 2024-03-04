@@ -1,0 +1,40 @@
+@import 'src/styles/imports/mixins';
+
+.notfound {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 48px;
+  width: 100%;
+  text-align: center;
+
+  &__heading {
+    display: inline-block;
+    margin: 0 20px 0 0;
+    padding-right: 23px;
+    font-size: 2.4rem;
+    font-weight: 500;
+    vertical-align: top;
+
+    border-right: 1px solid;
+
+    @include maxW(1023px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__sub {
+    display: inline-block;
+
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 2.8;
+
+      @include maxW(1023px) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

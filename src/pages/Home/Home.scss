@@ -1,0 +1,33 @@
+@import 'src/styles/imports/mixins';
+
+@import './styles/firstview';
+@import './styles/intro';
+@import './styles/projects';
+@import './styles/philosophy';
+@import './styles/company';
+
+body {
+  overflow-y: hidden;
+}
+
+.fullpage {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-behavior: smooth;
+
+  &.snap-scroll {
+    scroll-snap-type: none;
+  }
+
+  @include maxW(1023px) {
+    height: var(--app-height);
+  }
+}
+
+.vertical-scrolling {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  scroll-behavior: smooth;
+}
