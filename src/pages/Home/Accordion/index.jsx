@@ -1,7 +1,5 @@
 import React from 'react'
 
-import './Accordion.scss'
-
 /* ---------------------------------- hooks --------------------------------- */
 import useAccordion from 'src/hooks/useAccordion'
 
