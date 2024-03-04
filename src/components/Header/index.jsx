@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import './Header.scss'
+import styles from './header.module.scss'
 
 const Header = () => {
+  const headerMenuRef = useRef(null)
   const toggleRef = useRef(null)
   const [checked, setChecked] = useState(true)
   const [openMenu, setOpenMenu] = useState(false)
@@ -72,9 +73,9 @@ const Header = () => {
       doc.style.setProperty('--app-height', `${document.documentElement.clientHeight}px`)
       // height menu
       const windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-      document.querySelector('.c-header__menu').style.height = windowHeight + 'px'
-      if (document.querySelector('.intro')) {
-        document.querySelector('.intro').style.height = windowHeight + 'px'
+      headerMenuRef.current.style.height = windowHeight + 'px'
+      if (document.getElementById('intro')) {
+        document.getElementById('intro').style.height = windowHeight + 'px'
       }
     }
     appHeight()
@@ -85,24 +86,24 @@ const Header = () => {
   // ===== return =====
   return (
     <>
-      <header className='c-header'>
-        <Link to='/' className='c-header__left'>
+      <header className={styles.header}>
+        <Link to='/' className={styles.headerLeft}>
           <h1>anew inc.</h1>
         </Link>
 
-        <div className='c-header__center'>
-          <a href='#projects' className='anchor anchor-projects'>
+        <div className={styles.headerCenter}>
+          <a href='#projects' className='header_anchor anchor-projects'>
             projects,
           </a>
-          <a href='#philosophy' className='anchor'>
+          <a href='#philosophy' className='header_anchor'>
             philosophy,
           </a>
-          <a href='#company' className='anchor'>
+          <a href='#company' className='header_anchor'>
             company
           </a>
         </div>
 
-        <div className='c-header__right'>
+        <div className={styles.headerRight}>
           <p onClick={toggleMenu}>{!openMenu ? 'menu' : 'close'}</p>
           <label htmlFor='toggle'>
             <span>{checked ? 'dark' : 'light'}</span>
@@ -110,7 +111,7 @@ const Header = () => {
           <input
             id='toggle'
             ref={toggleRef}
-            className='toggle'
+            className={styles.toggle}
             checked={checked}
             type='checkbox'
             onChange={handleChange}
@@ -118,11 +119,14 @@ const Header = () => {
         </div>
       </header>
 
-      <div className={` ${'c-header__menu'} ${openMenu && size.width < 1023 ? `${'active'}` : ''} `}>
-        <div className='top'>
+      <div
+        className={` ${styles.headerMenu} ${openMenu && size.width < 1023 ? `${styles.active}` : ''} `}
+        ref={headerMenuRef}
+      >
+        <div className={styles.top}>
           <a
             href='/#projects'
-            className='anchor anchor-projects'
+            className='header_anchor anchor-projects'
             onClick={() => {
               toggleMenu()
             }}
@@ -131,7 +135,7 @@ const Header = () => {
           </a>
           <a
             href='/#philosophy'
-            className='anchor'
+            className='header_anchor anchor-projects'
             onClick={() => {
               toggleMenu()
             }}
@@ -140,7 +144,7 @@ const Header = () => {
           </a>
           <a
             href='/#company'
-            className='anchor'
+            className='header_anchor anchor-projects'
             onClick={() => {
               toggleMenu()
             }}
@@ -149,11 +153,11 @@ const Header = () => {
           </a>
         </div>
 
-        <div className='bottom'>
-          <Link to='https://instagram.com/anew__inc/' target='_blank' className='instagram'>
+        <div className={styles.bottom}>
+          <Link to='https://instagram.com/anew__inc/' target='_blank' className={styles.instagram}>
             INSTAGRAM
           </Link>
-          <Link to='https://www.websitecarbon.com/' target='_blank' className='carbon'>
+          <Link to='https://www.websitecarbon.com/' target='_blank' className={styles.carbon}>
             * This website emits 0.03g of CO2 per view.
           </Link>
           <p>©︎ {new Date().getFullYear()} anew inc.</p>
