@@ -1,26 +1,26 @@
 @import 'src/styles/imports/mixins';
 
-.c-footer {
+.footer {
   padding: 0 30px 25px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 80px;
   align-items: baseline;
 
-  &__right,
-  &__center,
-  &__left {
+  &-right,
+  &-center,
+  &-left {
     font-size: 1.6rem;
     width: fit-content;
   }
 
-  &__center {
+  &-center {
     display: flex;
     justify-content: center;
     margin: 0 auto;
   }
 
-  &__right {
+  &-right {
     text-align: right;
     margin-left: auto;
   }
@@ -30,22 +30,22 @@
     display: block;
     gap: unset;
 
-    &__right,
-    &__center {
+    &-right,
+    &-center {
       font-size: 1.3rem;
     }
 
-    &__left {
+    &-left {
       font-size: 1.6rem;
       margin-bottom: 30px;
     }
 
-    &__center {
+    &-center {
       display: block;
       margin: 0 0 7px;
     }
 
-    &__right {
+    &-right {
       text-align: left;
       margin-left: 0;
     }

@@ -1,12 +1,12 @@
 import React from 'react'
 
-import './NotFound.scss'
+import styles from './notfound.module.scss'
 
 const NotFoundPage = () => {
   return (
-    <div className='notfound'>
-      <h2 className='notfound__heading'>404</h2>
-      <div className='notfound__sub'>
+    <div className={styles.notfound}>
+      <h2 className={styles['notfound-heading']}>404</h2>
+      <div className={styles['notfound-sub']}>
         <h3>This page could not be found.</h3>
       </div>
     </div>

@@ -9,7 +9,7 @@
   width: 100%;
   text-align: center;
 
-  &__heading {
+  &-heading {
     display: inline-block;
     margin: 0 20px 0 0;
     padding-right: 23px;
@@ -24,7 +24,7 @@
     }
   }
 
-  &__sub {
+  &-sub {
     display: inline-block;
 
     h3 {
