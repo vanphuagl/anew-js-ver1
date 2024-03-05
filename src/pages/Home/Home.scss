@@ -11,7 +11,7 @@ body {
   overflow-y: hidden;
 }
 
-.fullpage {
+.homepage.fullpage {
   height: 100vh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
@@ -25,10 +25,10 @@ body {
   @include maxW(1023px) {
     height: var(--app-height);
   }
-}
 
-.vertical-scrolling {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  scroll-behavior: smooth;
+  .vertical-scrolling {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-behavior: smooth;
+  }
 }

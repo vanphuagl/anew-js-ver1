@@ -12,7 +12,7 @@ import { FirstView, Intro, Projects, Philosophy, Company } from './Section'
 import Header from 'src/components/Header'
 import Footer from 'src/components/Footer'
 
-import './Home.scss'
+import './home.scss'
 
 const HomePage = () => {
   const refIntro = useRef(null)
@@ -248,7 +248,9 @@ const HomePage = () => {
 
   return (
     <>
-      <div className='fullpage'>
+      <Header />
+      
+      <div className='homepage fullpage'>
         <div className='c-scroll' ref={refScroll}>
           <div className='line'>
             <span></span>

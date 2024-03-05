@@ -1,29 +1,31 @@
 // ======== Projects
-.projects {
-  width: 100%;
-  height: 100%;
-
-  &__container {
+.homepage {
+  .projects {
     width: 100%;
     height: 100%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    &__container {
+      width: 100%;
+      height: 100%;
 
-    h2 {
-      font-size: 2.1rem;
-      font-weight: 400;
-      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      opacity: 0;
-    }
-
-    @include maxW(1023px) {
-      height: var(--app-height);
       h2 {
-        font-size: 1.9rem;
-        margin-bottom: 15px;
+        font-size: 2.1rem;
+        font-weight: 400;
+        text-transform: uppercase;
+
+        opacity: 0;
+      }
+
+      @include maxW(1023px) {
+        height: var(--app-height);
+        h2 {
+          font-size: 1.9rem;
+          margin-bottom: 15px;
+        }
       }
     }
   }
