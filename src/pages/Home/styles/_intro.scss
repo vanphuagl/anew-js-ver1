@@ -218,8 +218,8 @@
 
   .c-scroll {
     position: fixed;
-    right: 35px;
-    bottom: 35px;
+    right: 30px;
+    bottom: 30px;
 
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -251,8 +251,8 @@
     }
 
     @include maxW(1023px) {
-      right: 22px;
-      bottom: 22px;
+      right: 20px;
+      bottom: 20px;
     }
   }
 }

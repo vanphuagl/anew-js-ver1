@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
 /* ---------------------------------- gsap ---------------------------------- */
 import { gsap } from 'gsap'
@@ -18,7 +17,6 @@ const HomePage = () => {
   const refIntro = useRef(null)
   const refProjects = useRef(null)
   const refNormal = useRef(null)
-  const refScroll = useRef(null)
 
   useEffect(() => {
     let mm = gsap.matchMedia(),
@@ -30,6 +28,11 @@ const HomePage = () => {
       toggleActions: 'restart pause resume pause',
       scroller: '.fullpage'
     })
+
+    // query
+    const refScroll = document.querySelector('.c-scroll')
+    const fullpage = document.querySelector('.fullpage')
+    const scrollSnap = document.querySelectorAll('.scroll-snap')
 
     // timeline
     const loadFirstView = gsap.timeline({
@@ -81,7 +84,7 @@ const HomePage = () => {
             .to('.intro__right', {
               opacity: 1,
               onComplete: () => {
-                refScroll.current.classList.add('fade')
+                refScroll.classList.add('fade')
               }
             })
         } else {
@@ -98,7 +101,7 @@ const HomePage = () => {
             .to('.intro__right', {
               opacity: 1,
               onComplete: () => {
-                refScroll.current.classList.add('fade')
+                refScroll.classList.add('fade')
               }
             })
         }
@@ -109,9 +112,6 @@ const HomePage = () => {
         }
       }
     )
-
-    const fullpage = document.querySelector('.fullpage')
-    const scrollSnap = document.querySelectorAll('.scroll-snap')
 
     // action sections
     const sections = document.querySelectorAll('.vertical-scrolling')
@@ -128,7 +128,7 @@ const HomePage = () => {
       fullpage.classList.remove('snap-scroll')
 
       if (i === 0) {
-        refScroll.current.classList.remove('fade')
+        refScroll.classList.remove('fade')
       }
 
       if (i === 1) {
@@ -140,28 +140,28 @@ const HomePage = () => {
           delay: 1,
           duration: 0.5
         })
-        gsap.to('.projects__title', {
+        gsap.to('.projects__container', {
           opacity: 0,
           duration: 0.5
         })
       }
 
       if (i === 2) {
-        refScroll.current.classList.add('fade')
+        refScroll.classList.add('fade')
 
         gsap.to('.intro', {
           opacity: 0,
           duration: 0.5
         })
-        gsap.to('.projects__title', {
+        gsap.to('.projects__container', {
           opacity: 1,
-          delay: 1,
+          delay: 0.5,
           duration: 0.5
         })
       }
 
       if (i === 3) {
-        gsap.to('.projects__title', {
+        gsap.to('.projects__container', {
           opacity: 0,
           duration: 0.3
         })
@@ -170,7 +170,7 @@ const HomePage = () => {
           refNormal.current.classList.add('fade')
           // fullpage.classList.add('snap-scroll')
         }, 500)
-        refScroll.current.classList.remove('fade')
+        refScroll.classList.remove('fade')
       } else {
         fullpage.classList.remove('snap-scroll')
       }
@@ -199,18 +199,19 @@ const HomePage = () => {
   }, [])
 
   useEffect(() => {
-    const fullpageScroll = document.querySelector('.fullpage')
+    const refFullpage = document.querySelector('.fullpage')
+    const refScroll = document.querySelector('.c-scroll')
 
     const onScroll = (e) => {
       if (e.currentTarget.scrollTop > refNormal.current.offsetTop) {
-        fullpageScroll.classList.add('snap-scroll')
+        refFullpage.classList.add('snap-scroll')
       } else if (e.currentTarget.scrollTop === refNormal.current.offsetTop) {
-        fullpageScroll.classList.remove('snap-scroll')
+        refFullpage.classList.remove('snap-scroll')
       }
 
       if (e.currentTarget.scrollTop >= refNormal.current.offsetTop) {
-        refScroll.current.classList.remove('fade')
-        gsap.to('.projects__title', {
+        refScroll.classList.remove('fade')
+        gsap.to('.projects__container', {
           opacity: 0,
           duration: 0.3
         })
@@ -226,14 +227,14 @@ const HomePage = () => {
       }
 
       if (Math.round(e.currentTarget.scrollTop) === refProjects.current.offsetTop) {
-        fullpageScroll.style.setProperty('scroll-snap-type', '')
+        refFullpage.style.setProperty('scroll-snap-type', '')
 
-        refScroll.current.classList.add('fade')
+        refScroll.classList.add('fade')
         gsap.to('.intro', {
           opacity: 0,
           duration: 0.5
         })
-        gsap.to('.projects__title', {
+        gsap.to('.projects__container', {
           opacity: 1,
           delay: 0.5,
           duration: 0.5
@@ -241,17 +242,17 @@ const HomePage = () => {
       }
     }
     // clean up code
-    fullpageScroll.removeEventListener('scroll', onScroll)
-    fullpageScroll.addEventListener('scroll', onScroll, { passive: true })
-    return () => fullpageScroll.removeEventListener('scroll', onScroll)
+    refFullpage.removeEventListener('scroll', onScroll)
+    refFullpage.addEventListener('scroll', onScroll, { passive: true })
+    return () => refFullpage.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <>
       <Header />
-      
+
       <div className='homepage fullpage'>
-        <div className='c-scroll' ref={refScroll}>
+        <div className='c-scroll'>
           <div className='line'>
             <span></span>
           </div>
