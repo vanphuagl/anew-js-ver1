@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger, ScrollToPlugin } from 'gsap/all'
 
 /* --------------------------------- section -------------------------------- */
-import { FirstView, Intro, Projects, Philosophy, Company } from './Section'
+import { FirstView, Intro, Projects, Philosophy, Company } from './section'
 
 /* ------------------------------- components ------------------------------- */
 import Header from 'src/components/Header'

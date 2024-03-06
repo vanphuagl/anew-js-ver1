@@ -64,6 +64,7 @@ section,
 time,
 mark,
 audio,
+picture,
 video {
   margin: 0;
   padding: 0;
@@ -83,6 +84,7 @@ hgroup,
 menu,
 nav,
 section,
+picture,
 svg,
 a,
 main {
@@ -168,7 +170,8 @@ a:hover img {
   filter: alpha(opacity=80);
 }
 
-figure {
+figure,
+picture {
   width: 100%;
   height: 100%;
 }

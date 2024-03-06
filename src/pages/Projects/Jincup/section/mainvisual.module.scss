@@ -1,0 +1,34 @@
+@import 'src/styles/imports/mixins';
+
+.mainvisualContainer {
+  position: relative;
+}
+
+.mainvisualImg {
+  width: 100%;
+  height: 100vh;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.mainvisualLogo {
+  position: absolute;
+  right: 35px;
+  bottom: 30px;
+  z-index: 1;
+
+  @include maxW(1023px) {
+    right: auto;
+    left: 22px;
+    bottom: 22px;
+
+    svg {
+      width: 72.92px;
+      height: auto;
+    }
+  }
+}

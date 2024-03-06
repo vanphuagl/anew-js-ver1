@@ -1,4 +1,11 @@
 import React, { useEffect } from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
+
+/* -------------------------------- component ------------------------------- */
+import Header from './components/Header'
+
+/* --------------------------------- section -------------------------------- */
+import { Mainvisual, Overview } from './section'
 
 import styles from './jincup.module.scss'
 
@@ -11,7 +18,20 @@ const JincupPage = () => {
     document.documentElement.setAttribute('data-theme', currentTheme)
   }, [])
 
-  return <div>JincupPage</div>
+  return (
+    <>
+      <HelmetProvider>
+        <Helmet>
+          <title>Jincup Anew ｜ アニュウインク</title>
+          <script src='https://use.typekit.net/sbn4zvv.js'></script>
+        </Helmet>
+
+        <Header />
+        <Mainvisual />
+        <Overview />
+      </HelmetProvider>
+    </>
+  )
 }
 
 export default JincupPage
