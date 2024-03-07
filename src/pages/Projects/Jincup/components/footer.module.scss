@@ -17,6 +17,33 @@
 
     a {
       text-transform: uppercase;
+      position: relative;
+      display: inline-block;
+      color: currentColor;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        border-radius: 5px;
+        height: 2px;
+        bottom: -3px;
+        left: 0;
+        background: currentcolor;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+      }
+
+      &:hover {
+        opacity: 1;
+
+        &::after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
+          opacity: 1;
+        }
+      }
     }
 
     @include maxW(1023px) {
@@ -28,6 +55,10 @@
   .right {
     cursor: pointer;
     transition: 0.3s ease-in-out;
+
+    line {
+      stroke: currentColor;
+    }
 
     &:hover {
       opacity: 0.8;

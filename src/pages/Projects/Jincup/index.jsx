@@ -11,7 +11,8 @@ import { Mainvisual, Overview, Dialogue, Prototype } from './section'
 const JincupPage = () => {
   useEffect(() => {
     let currentTheme = localStorage.getItem('data-theme')
-    if (!currentTheme) currentTheme = 'dark'
+    if (!currentTheme) currentTheme = 'light'
+    if (currentTheme) currentTheme = 'light'
 
     document.body.style.overflow = 'auto'
     document.documentElement.setAttribute('data-theme', currentTheme)
@@ -26,7 +27,7 @@ const JincupPage = () => {
         </Helmet>
 
         <Header />
-        <main className='jincupspage'>
+        <main className='jincuppage'>
           <Mainvisual />
           <Overview />
           <Dialogue />

@@ -21,6 +21,18 @@
 
   .left {
     padding-left: 16.666666666667%;
+
+    .logo svg {
+      margin-top: 1px;
+      
+      rect,
+      path {
+        fill: currentColor;
+      }
+      line {
+        stroke: currentColor;
+      }
+    }
   }
 
   .right {

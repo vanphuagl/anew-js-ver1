@@ -50,17 +50,68 @@
 .dialogueTit {
   position: absolute;
   top: 0;
-  height: 100vh;
+  left: 35px;
+  height: 100%;
 
   .inner {
     position: absolute;
-    top: 50%;
-    height: 100%;
+    top: 50vh;
+    height: calc(100% - 35vh);
 
     .sticky {
       position: sticky;
       top: 50%;
       transform: translateY(-50%);
+    }
+  }
+
+  h2 {
+    font-size: 5.6rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .name {
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+
+  .founder {
+    font-size: 1.8rem;
+    line-height: 1.4;
+  }
+
+  @include maxW(1023px) {
+    top: 0;
+    left: 22px;
+    height: 100vh;
+  
+    .inner {
+      position: unset;
+      height: 100%;
+  
+      .sticky {
+        position: absolute;
+        top: auto;
+        bottom: 22px;
+        transform: unset;
+      }
+    }
+
+    h2 {
+      font-size: 4.2rem;
+      line-height: 1.4;
+    }
+  
+    .name {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+  
+    .founder {
+      font-size: 1.6rem;
+      line-height: 1.4;
     }
   }
 }

@@ -21,13 +21,13 @@ const Header = () => {
       document.documentElement.scrollTop + 10 > document.getElementById('overview').offsetTop
         ? setIsHeader(true)
         : setIsHeader(false)
-      document.documentElement.scrollTop - 200 > document.getElementById('prototype').offsetTop
+      document.documentElement.scrollTop > document.getElementById('prototype').offsetTop
         ? setIsHidden(true)
         : setIsHidden(false)
     }
 
     const scrollActiveLink = () => {
-      document.querySelectorAll('.projectspage section').forEach(function (event) {
+      document.querySelectorAll('.jincuppage section').forEach(function (event) {
         if (event.getBoundingClientRect().top < 75) {
           let t = event.attributes.id.value
           setScroll(t)
@@ -189,7 +189,7 @@ const Header = () => {
           `}
         >
           {navigation.map((links, index) => (
-            <a href={links.href} key={index} className={`${scroll === links.id ? `${styles.active}` : ''}`}>
+            <a href={links.href} key={index} className={`${scroll === links.id ? `${styles.activeLink}` : ''}`}>
               {links.name}
             </a>
           ))}
