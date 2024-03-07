@@ -3,11 +3,11 @@ import React from 'react'
 /* ---------------------------------- image --------------------------------- */
 import overviewImg from 'src/pages/Projects/Jincup/img/overview.webp'
 
-import styles from './overview.module.scss'
+import styles from '../styles/overview.module.scss'
 
 const Overview = () => {
   return (
-    <div className={styles.overview} id='overview'>
+    <section className={styles.overview} id='overview'>
       <div className={styles.overviewContainer}>
         <div className={styles.overviewRight}>
           <figure>
@@ -79,7 +79,7 @@ const Overview = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

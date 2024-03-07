@@ -2,22 +2,47 @@ import React, { useEffect, useState } from 'react'
 
 import styles from './header.module.scss'
 
+// navigation
+const navigation = [
+  { id: 'overview', name: 'overview', href: '#overview', current: true },
+  { id: 'dialogue', name: 'dialogue', href: '#dialogue', current: true },
+  { id: 'prototype', name: 'prototype', href: '#prototype', current: true }
+]
+
 const Header = () => {
   const [isNav, setIsNav] = useState(false)
   const [isHeader, setIsHeader] = useState(false)
+  const [isHidden, setIsHidden] = useState(false)
+  const [scroll, setScroll] = useState('')
 
   useEffect(() => {
     const scrollScale = () => {
-      console.log('document.body.scrollTop', document.documentElement.scrollTop)
       document.documentElement.scrollTop > 80 ? setIsNav(true) : setIsNav(false)
       document.documentElement.scrollTop + 10 > document.getElementById('overview').offsetTop
         ? setIsHeader(true)
         : setIsHeader(false)
+      document.documentElement.scrollTop - 200 > document.getElementById('prototype').offsetTop
+        ? setIsHidden(true)
+        : setIsHidden(false)
+    }
+
+    const scrollActiveLink = () => {
+      document.querySelectorAll('.projectspage section').forEach(function (event) {
+        if (event.getBoundingClientRect().top < 75) {
+          let t = event.attributes.id.value
+          setScroll(t)
+        }
+      })
     }
 
     scrollScale()
+    scrollActiveLink()
     window.addEventListener('scroll', scrollScale)
-    return () => window.removeEventListener('scroll', scrollScale)
+    window.addEventListener('scroll', scrollActiveLink)
+    return () => {
+      window.removeEventListener('scroll', scrollScale)
+      window.removeEventListener('scroll', scrollActiveLink)
+    }
   }, [])
 
   return (
@@ -156,10 +181,18 @@ const Header = () => {
           </svg>
         </div>
 
-        <div className={`${styles.headerNav} ${isNav ? `${styles.active}` : ''}`}>
-          <a href='#overview'>overview</a>
-          <a href='#dialogue'>dialogue</a>
-          <a href='#prototype'>prototype</a>
+        <div
+          className={`
+            ${styles.headerNav} 
+            ${isNav ? `${styles.active}` : ''} 
+            ${isHidden ? `${styles.hidden}` : ''}
+          `}
+        >
+          {navigation.map((links, index) => (
+            <a href={links.href} key={index} className={`${scroll === links.id ? `${styles.active}` : ''}`}>
+              {links.name}
+            </a>
+          ))}
         </div>
       </div>
     </header>

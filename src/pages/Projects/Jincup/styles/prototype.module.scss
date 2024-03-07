@@ -1,0 +1,138 @@
+@import 'src/styles/imports/mixins';
+
+.prototypeContent {
+  width: 100%;
+  margin: 150px auto 95px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+
+  p {
+    font-family: var(--yugothic-fonts);
+    font-weight: 500;
+    font-feature-settings: 'palt' 1;
+  }
+
+  .left,
+  .right {
+    width: 50%;
+  }
+
+  .left {
+    padding-left: 16.666666666667%;
+  }
+
+  .right {
+    padding-right: 14.583333333333%;
+  }
+
+  @include maxW(1023px) {
+    display: block;
+    padding: 0 16.9082125604% 0 5.3140096618%;
+    margin: 45px auto;
+
+    .left,
+    .right {
+      width: 100%;
+      padding: 0;
+    }
+
+    .left {
+      margin-top: 100px;
+
+      .logo svg {
+        width: auto;
+        height: 120px;
+      }
+    }
+  }
+}
+
+.prototypeHead {
+  h2 {
+    font-size: 2.6rem;
+    font-weight: 400;
+
+    span {
+      font-size: 1.3rem;
+      display: inline-block;
+      margin-left: 5px;
+      position: absolute;
+    }
+  }
+
+  p {
+    margin-top: 10px;
+    font-size: 1.8rem;
+  }
+
+  @include maxW(1023px) {
+    h2 {
+      font-size: 2.2rem;
+
+      span {
+        font-size: 1.1rem;
+      }
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.prototypeDesc {
+  margin-top: 50px;
+
+  p {
+    font-size: 1.5rem;
+    letter-spacing: -0.6px;
+    line-height: 1.73;
+    margin-bottom: 55px;
+
+    &:last-child {
+      margin-bottom: initial;
+    }
+  }
+
+  @include maxW(1023px) {
+    margin-top: 35px;
+
+    p {
+      font-size: 1.3rem;
+      line-height: 1.75;
+      letter-spacing: -0.52px;
+    }
+  }
+}
+
+.prototypeLink {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 20px;
+
+  a:hover {
+    opacity: 1;
+  }
+
+  @include maxW(1032px) {
+    gap: 18px;
+
+    a:first-child svg {
+      width: auto;
+      height: 23px;
+    }
+
+    a:nth-child(2) svg {
+      width: auto;
+      height: 25px;
+    }
+
+    a:last-child svg {
+      width: auto;
+      height: 21.49px;
+    }
+  }
+}

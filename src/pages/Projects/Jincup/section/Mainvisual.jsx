@@ -4,11 +4,11 @@ import React from 'react'
 import mainvisualImg from 'src/pages/Projects/Jincup/img/mainvisual.webp'
 import mainvisualSpImg from 'src/pages/Projects/Jincup/img/mainvisual_sp.webp'
 
-import styles from './mainvisual.module.scss'
+import styles from '../styles/mainvisual.module.scss'
 
 const Mainvisual = () => {
   return (
-    <div className={styles.mainvisual} id="mainvisual">
+    <section className={styles.mainvisual} id="mainvisual">
       <div className={styles.mainvisualContainer}>
         <div className={styles.mainvisualImg}>
           <picture>
@@ -93,7 +93,7 @@ const Mainvisual = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
