@@ -5,9 +5,9 @@ import { Helmet, HelmetProvider } from 'react-helmet-async'
 import Header from './components/Header'
 
 /* --------------------------------- section -------------------------------- */
-import { Mainvisual, Overview } from './section'
+import { Mainvisual, Overview, Dialogue } from './section'
 
-import styles from './jincup.module.scss'
+// import styles from './jincup.module.scss'
 
 const JincupPage = () => {
   useEffect(() => {
@@ -29,6 +29,7 @@ const JincupPage = () => {
         <Header />
         <Mainvisual />
         <Overview />
+        <Dialogue />
       </HelmetProvider>
     </>
   )

@@ -110,8 +110,12 @@
           background-color: currentColor;
         }
 
-        &:hover::before {
-          animation: lineLink 0.5s;
+        &:hover {
+          opacity: 1;
+          
+          &::before {
+            animation: lineLink 0.5s;
+          }
         }
       }
 

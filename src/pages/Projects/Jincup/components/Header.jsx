@@ -8,9 +8,9 @@ const Header = () => {
 
   useEffect(() => {
     const scrollScale = () => {
-      document.body.scrollTop > 80 || document.documentElement.scrollTop > 80 ? setIsNav(true) : setIsNav(false)
-      document.body.scrollTop > document.getElementById('overview').offsetTop ||
-      document.documentElement.scrollTop > document.getElementById('overview').offsetTop
+      console.log('document.body.scrollTop', document.documentElement.scrollTop)
+      document.documentElement.scrollTop > 80 ? setIsNav(true) : setIsNav(false)
+      document.documentElement.scrollTop + 10 > document.getElementById('overview').offsetTop
         ? setIsHeader(true)
         : setIsHeader(false)
     }
@@ -25,7 +25,7 @@ const Header = () => {
       <div className={styles.headerContainer}>
         <div className={`${styles.headerTop} ${isHeader ? `${styles.active}` : ''}`}>
           <div className={styles.left}>
-            <div className={`${styles.tit} ${isNav ? `${styles.active}` : ''}`}>
+            <h1 className={`${styles.tit} ${isNav ? `${styles.active}` : ''}`}>
               <svg
                 role='img'
                 aria-label='jincup anew'
@@ -44,7 +44,7 @@ const Header = () => {
                   />
                 </g>
               </svg>
-            </div>
+            </h1>
           </div>
 
           <div className={styles.right}>
