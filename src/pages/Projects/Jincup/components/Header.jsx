@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import styles from './header.module.scss'
 
@@ -21,7 +22,7 @@ const Header = () => {
       document.documentElement.scrollTop + 10 > document.getElementById('overview').offsetTop
         ? setIsHeader(true)
         : setIsHeader(false)
-      document.documentElement.scrollTop > document.getElementById('prototype').offsetTop
+      document.documentElement.scrollTop + 800 > document.getElementById('prototype').offsetTop
         ? setIsHidden(true)
         : setIsHidden(false)
     }
@@ -44,6 +45,23 @@ const Header = () => {
       window.removeEventListener('scroll', scrollActiveLink)
     }
   }, [])
+
+  const handleLink = (path) => {
+    switch (path) {
+      case 'overview':
+        document.getElementById('overview').scrollIntoView({ behavior: 'smooth' })
+        break
+      case 'dialogue':
+        document.getElementById('dialogue').scrollIntoView({ behavior: 'smooth' })
+        break
+      case 'prototype':
+        document.getElementById('prototype').scrollIntoView({ behavior: 'smooth' })
+        break
+
+      default:
+        break
+    }
+  }
 
   return (
     <header className={styles.header}>
@@ -189,9 +207,13 @@ const Header = () => {
           `}
         >
           {navigation.map((links, index) => (
-            <a href={links.href} key={index} className={`${scroll === links.id ? `${styles.activeLink}` : ''}`}>
+            <Link
+              key={index}
+              onClick={() => handleLink(links.id)}
+              className={`${scroll === links.id ? `${styles.activeLink}` : ''}`}
+            >
               {links.name}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

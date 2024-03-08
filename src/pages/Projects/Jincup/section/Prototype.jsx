@@ -1,20 +1,117 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+/* --------------------------------- swiper --------------------------------- */
+import { Pagination, Controller } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import 'swiper/css'
 
 /* ---------------------------------- image --------------------------------- */
-// import prototypeSlide1 from 'src/pages/Projects/Jincup/img/prototype_1.webp'
-// import prototypeSlide1SP from 'src/pages/Projects/Jincup/img/prototype_1_sp.webp'
-// import prototypeSlide2 from 'src/pages/Projects/Jincup/img/prototype_2.webp'
+import prototypeSlide1 from 'src/pages/Projects/Jincup/img/prototype_1.webp'
+import prototypeSlide1SP from 'src/pages/Projects/Jincup/img/prototype_1_sp.webp'
+import prototypeSlide2 from 'src/pages/Projects/Jincup/img/prototype_2.webp'
+import prototypeSlide3 from 'src/pages/Projects/Jincup/img/dialogue.webp'
+import prototypeSlide4 from 'src/pages/Projects/Jincup/img/mainvisual.webp'
+
+/* ---------------------------------- hooks --------------------------------- */
+import useWindowDimensions from 'src/hooks/useWindowDimensions'
 
 import styles from '../styles/prototype.module.scss'
 
 const Prototype = () => {
+  const { width } = useWindowDimensions()
+  const [controlledSwiper, setControlledSwiper] = useState(null)
+  const [currentSlide, setCurrentSlide] = useState(1)
+  const [totalSlide, setTotalSlide] = useState(1)
+
   return (
     <section className={styles.prototype} id='prototype'>
       <div className={styles.prototypeContainer}>
-        <div className={styles.prototypeSwiper} style={{ height: '100vh', display: 'flex' }}>
-          <div className={styles.left} style={{ background: 'black', width: '50%' }}></div>
-          <div className={styles.right} style={{ background: 'pink', width: '50%' }}></div>
-        </div>
+        {width > 1023 ? (
+          <div className={`${styles.prototypeSwiper} pc-only`}>
+            <div className={styles.prototypeTitle}>
+              <h2>prototype</h2>
+              <div className={styles.prototypePagination} id='containerForBullets'></div>
+            </div>
+
+            <div className={styles.left}>
+              <Swiper
+                modules={[Pagination]}
+                spaceBetween={0}
+                slidesPerView={1}
+                onSwiper={setControlledSwiper}
+                allowTouchMove={false}
+                className={styles.prototypeSwiperWrapper}
+              >
+                <SwiperSlide className={styles.prototypeSlide}>
+                  <img src={prototypeSlide1} alt='PROTOTYPE' loading='lazy' />
+                </SwiperSlide>
+                <SwiperSlide className={styles.prototypeSlide}>
+                  <img src={prototypeSlide4} alt='PROTOTYPE' loading='lazy' />
+                </SwiperSlide>
+              </Swiper>
+            </div>
+
+            <div className={styles.right}>
+              <Swiper
+                modules={[Pagination, Controller]}
+                spaceBetween={0}
+                slidesPerView={1}
+                allowTouchMove={false}
+                className={styles.prototypeSwiperWrapper}
+                controller={{ control: controlledSwiper }}
+                pagination={{
+                  clickable: true,
+                  el: '#containerForBullets',
+                  type: 'bullets',
+                  bulletClass: styles.bullet,
+                  bulletActiveClass: styles.bulletActive,
+                  renderBullet: (index, className) => {
+                    return '<span class="' + className + '">0' + (index + 1) + '</span>'
+                  }
+                }}
+              >
+                <SwiperSlide className={styles.prototypeSlide}>
+                  <img src={prototypeSlide2} alt='PROTOTYPE' loading='lazy' />
+                </SwiperSlide>
+                <SwiperSlide className={styles.prototypeSlide}>
+                  <img src={prototypeSlide3} alt='PROTOTYPE' loading='lazy' />
+                </SwiperSlide>
+              </Swiper>
+            </div>
+          </div>
+        ) : (
+          <div className={`${styles.prototypeSwiperSP} sp-only`}>
+            <div className={styles.prototypeTitle}>
+              <h2>prototype</h2>
+              <div className={styles.prototypeTotal}>
+                <span>0{currentSlide}</span>
+                <span>/</span>
+                <span>0{totalSlide}</span>
+              </div>
+            </div>
+
+            <Swiper
+              modules={[Pagination, Controller]}
+              spaceBetween={0}
+              slidesPerView={1}
+              className={styles.prototypeSwiperWrapper}
+              controller={{ control: controlledSwiper }}
+              onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex + 1)}
+              onSwiper={(swiper) => setTotalSlide(swiper.slides.length)}
+            >
+              <SwiperSlide className={styles.prototypeSlide}>
+                <img src={prototypeSlide1SP} alt='PROTOTYPE' loading='lazy' />
+              </SwiperSlide>
+              <SwiperSlide className={styles.prototypeSlide}>
+                <img src={prototypeSlide2} alt='PROTOTYPE' loading='lazy' />
+              </SwiperSlide>
+              <SwiperSlide className={styles.prototypeSlide}>
+                <img src={prototypeSlide3} alt='PROTOTYPE' loading='lazy' />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        )}
 
         <div className={styles.prototypeContent}>
           <div className={styles.right}>
