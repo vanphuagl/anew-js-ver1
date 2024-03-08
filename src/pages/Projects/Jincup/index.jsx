@@ -18,6 +18,16 @@ const JincupPage = () => {
     document.documentElement.setAttribute('data-theme', currentTheme)
   }, [])
 
+  useEffect(() => {
+    const appHeight = () => {
+      const doc = document.documentElement
+      doc.style.setProperty('--app-height', `${document.documentElement.clientHeight}px`)
+    }
+    appHeight()
+    window.addEventListener('resize', appHeight)
+    return () => window.removeEventListener('resize', appHeight)
+  }, [])
+
   return (
     <>
       <HelmetProvider>

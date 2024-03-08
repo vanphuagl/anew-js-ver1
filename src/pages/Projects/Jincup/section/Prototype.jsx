@@ -54,6 +54,7 @@ const Prototype = () => {
 
             <div className={styles.right}>
               <Swiper
+                cssMode={true}
                 modules={[Pagination, Controller]}
                 spaceBetween={0}
                 slidesPerView={1}
@@ -92,7 +93,7 @@ const Prototype = () => {
             </div>
 
             <Swiper
-              modules={[Pagination, Controller]}
+              modules={[Controller]}
               spaceBetween={0}
               slidesPerView={1}
               className={styles.prototypeSwiperWrapper}
@@ -108,6 +109,9 @@ const Prototype = () => {
               </SwiperSlide>
               <SwiperSlide className={styles.prototypeSlide}>
                 <img src={prototypeSlide3} alt='PROTOTYPE' loading='lazy' />
+              </SwiperSlide>
+              <SwiperSlide className={styles.prototypeSlide}>
+                <img src={prototypeSlide4} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
             </Swiper>
           </div>

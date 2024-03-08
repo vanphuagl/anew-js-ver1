@@ -93,7 +93,7 @@
     font-weight: 400;
 
     span {
-      font-size: 1.3rem;
+      font-size: 1.6rem;
       display: inline-block;
       margin-left: 5px;
       position: absolute;
@@ -110,7 +110,7 @@
       font-size: 2.2rem;
 
       span {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
       }
     }
 
@@ -141,6 +141,7 @@
       font-size: 1.3rem;
       line-height: 1.75;
       letter-spacing: -0.52px;
+      margin-bottom: 35px;
     }
   }
 }
@@ -156,6 +157,7 @@
   }
 
   @include maxW(1032px) {
+    margin-top: 10px;
     gap: 18px;
 
     a:first-child svg {
@@ -217,6 +219,10 @@
 
   span {
     font-size: 1.6rem;
+  }
+
+  .bullet {
+    display: none;
   }
 }
 
