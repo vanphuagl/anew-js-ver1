@@ -155,7 +155,7 @@ const HomePage = () => {
         })
         gsap.to('.projects__container', {
           opacity: 1,
-          delay: 0.5,
+          delay: 1,
           duration: 0.5
         })
       }
