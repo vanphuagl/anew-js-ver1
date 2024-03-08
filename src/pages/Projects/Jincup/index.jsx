@@ -8,6 +8,8 @@ import Footer from './components/Footer'
 /* --------------------------------- section -------------------------------- */
 import { Mainvisual, Overview, Dialogue, Prototype } from './section'
 
+import transition from 'src/utils/transition'
+
 const JincupPage = () => {
   useEffect(() => {
     let currentTheme = localStorage.getItem('data-theme')
@@ -49,4 +51,4 @@ const JincupPage = () => {
   )
 }
 
-export default JincupPage
+export default transition(JincupPage)

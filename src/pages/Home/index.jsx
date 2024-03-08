@@ -11,6 +11,8 @@ import { FirstView, Intro, Projects, Philosophy, Company } from './section'
 import Header from 'src/components/Header'
 import Footer from 'src/components/Footer'
 
+import transition from 'src/utils/transition'
+
 import './home.scss'
 
 const HomePage = () => {
@@ -280,4 +282,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default transition(HomePage)

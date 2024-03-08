@@ -3,6 +3,7 @@ import React from 'react'
 import LayoutDefault from 'src/components/Layout/layout'
 
 import styles from './notfound.module.scss'
+import transition from 'src/utils/transition'
 
 const NotFoundPage = () => {
   return (
@@ -17,4 +18,4 @@ const NotFoundPage = () => {
   )
 }
 
-export default NotFoundPage
+export default transition(NotFoundPage)
