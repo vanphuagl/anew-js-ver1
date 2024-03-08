@@ -19,12 +19,14 @@ const Header = () => {
   useEffect(() => {
     const scrollScale = () => {
       document.documentElement.scrollTop > 80 ? setIsNav(true) : setIsNav(false)
-      document.documentElement.scrollTop + 10 > document.getElementById('overview').offsetTop
-        ? setIsHeader(true)
-        : setIsHeader(false)
-      document.documentElement.scrollTop + 800 > document.getElementById('prototype').offsetTop
-        ? setIsHidden(true)
-        : setIsHidden(false)
+      if (document.getElementById('jincuppage')) {
+        document.documentElement.scrollTop + 10 > document.getElementById('overview').offsetTop
+          ? setIsHeader(true)
+          : setIsHeader(false)
+        document.documentElement.scrollTop + 800 > document.getElementById('prototype').offsetTop
+          ? setIsHidden(true)
+          : setIsHidden(false)
+      }
     }
 
     const scrollActiveLink = () => {

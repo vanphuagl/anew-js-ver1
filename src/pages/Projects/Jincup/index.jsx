@@ -37,7 +37,7 @@ const JincupPage = () => {
         </Helmet>
 
         <Header />
-        <main className='jincuppage'>
+        <main className='jincuppage' id="jincuppage">
           <Mainvisual />
           <Overview />
           <Dialogue />
