@@ -22,8 +22,8 @@
 
   p {
     font-size: 1.6rem;
-    line-height: 1.54;
-    letter-spacing: -0.64px;
+    line-height: 1.8;
+    letter-spacing: -0.4px;
     font-weight: 500;
   }
 
@@ -70,11 +70,16 @@
     font-weight: 400;
     line-height: 1.4;
     text-transform: uppercase;
+    margin-left: -2px;
   }
 
   .name {
     font-size: 2.4rem;
     line-height: 1.2;
+
+    span {
+      margin-left: 1px;
+    }
   }
 
   .founder {
@@ -86,11 +91,11 @@
     top: 0;
     left: 22px;
     height: 100vh;
-  
+
     .inner {
       position: unset;
       height: 100%;
-  
+
       .sticky {
         position: absolute;
         top: auto;
@@ -103,12 +108,12 @@
       font-size: 4.2rem;
       line-height: 1.4;
     }
-  
+
     .name {
       font-size: 2rem;
       line-height: 1.2;
     }
-  
+
     .founder {
       font-size: 1.6rem;
       line-height: 1.4;
@@ -160,7 +165,7 @@
     display: flex;
     align-items: baseline;
     gap: 10px;
-    margin-bottom: 85px;
+    margin-bottom: 50px;
 
     &:last-child {
       margin-bottom: initial;

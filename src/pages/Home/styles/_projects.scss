@@ -68,6 +68,7 @@
 
     &__img {
       margin-top: 56px;
+      margin-left: 20px;
       width: auto;
       height: 68.83vh;
 
@@ -80,6 +81,7 @@
       @include maxW(1023px) {
         padding: 0 40px;
         margin-top: -30px;
+        margin-left: 0;
         width: 100%;
         height: 42.37vh;
       }

@@ -25,7 +25,7 @@ const Dialogue = () => {
             <div className={styles.sticky}>
               <h2>dialogue:</h2>
               <p className={styles.name}>
-                jinAKIHIRO × <br />
+                <span>j</span>inAKIHIRO × <br />
                 Yuichi Murakami
               </p>
               <p className={styles.founder}>anew inc. Founder</p>

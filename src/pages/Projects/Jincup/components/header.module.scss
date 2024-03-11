@@ -1,8 +1,5 @@
 @import 'src/styles/imports/mixins';
 
-.header {
-}
-
 .headerContainer {
   position: relative;
   z-index: 99;
@@ -12,7 +9,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 30px 35px;
+  padding: 35px;
   display: flex;
   justify-content: space-between;
   gap: 15px;
@@ -29,6 +26,11 @@
         height: auto;
       }
     }
+  }
+
+  path,
+  g,line {
+    transition: 0.2s ease;
   }
 
   @include maxW(1023px) {

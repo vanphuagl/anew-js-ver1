@@ -32,7 +32,7 @@
 .overviewRight {
   flex: 1;
   position: sticky;
-  top: 150px;
+  top: 125px;
   right: 0;
   height: calc(100vh - 10.204081632653%);
 
@@ -64,16 +64,17 @@
     p {
       margin-top: 20px;
       font-size: 2.6rem;
-      line-height: 1.33;
-      letter-spacing: -0.8px;
+      line-height: 1.4;
+      letter-spacing: -0.4px;
+      margin-left: -2px;
     }
   }
 
   .desc {
     p {
       font-size: 1.6rem;
-      letter-spacing: -0.64px;
-      line-height: 1.54;
+      letter-spacing: -0.4px;
+      line-height: 1.8;
     }
   }
 
@@ -123,22 +124,22 @@
 
       p {
         font-size: 1.4rem;
-        letter-spacing: -0.56px;
+        letter-spacing: -0.4px;
       }
     }
 
     .desc {
       font-size: 1.4rem;
-      line-height: 1.59;
-      letter-spacing: -0.56px;
+      line-height: 1.8;
+      letter-spacing: -0.4px;
     }
 
     .link {
-      margin-top: 50px;
+      margin-top: 25px;
 
       a {
         font-size: 1.4rem;
-        line-height: 1.89;
+        line-height: 1.8;
         text-decoration: underline;
         text-underline-offset: 2px;
       }
