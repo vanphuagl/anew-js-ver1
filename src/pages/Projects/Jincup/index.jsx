@@ -28,16 +28,17 @@ const JincupPage = () => {
     return () => window.removeEventListener('resize', appHeight)
   }, [])
 
+  //<script src='https://use.typekit.net/sbn4zvv.js'></script>
+
   return (
     <>
       <HelmetProvider>
         <Helmet>
-          <title>Jincup Anew ｜ アニュウインク</title>
-          <script src='https://use.typekit.net/sbn4zvv.js'></script>
+          <title>jincup anew ｜ PROJECTS ｜ anew inc.</title>
         </Helmet>
 
         <Header />
-        <main className='jincuppage' id="jincuppage">
+        <main className='jincuppage' id='jincuppage'>
           <Mainvisual />
           <Overview />
           <Dialogue />

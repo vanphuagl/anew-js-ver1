@@ -2,7 +2,7 @@ import React from 'react'
 
 const Intro = () => {
   return (
-    <div className='intro'>
+    <div className='intro' id='intro'>
       <div className='intro__container'>
         <div className='intro__gap pc-only'></div>
 

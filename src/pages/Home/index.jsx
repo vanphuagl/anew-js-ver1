@@ -17,29 +17,26 @@ const HomePage = () => {
   const refIntro = useRef(null)
   const refProjects = useRef(null)
   const refNormal = useRef(null)
+  const refScroll = useRef(null)
+  const refFullpage = useRef(null)
 
   useEffect(() => {
+    const scrollSnap = document.querySelectorAll('.homepage .scroll-snap')
     let mm = gsap.matchMedia(),
       breakPoint = 1024
 
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.registerPlugin(ScrollToPlugin)
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
     ScrollTrigger.defaults({
       toggleActions: 'restart pause resume pause',
-      scroller: '.fullpage'
+      scroller: refFullpage.current
     })
-
-    // query
-    const refScroll = document.querySelector('.c-scroll')
-    const fullpage = document.querySelector('.fullpage')
-    const scrollSnap = document.querySelectorAll('.scroll-snap')
 
     // timeline
     const loadFirstView = gsap.timeline({
       paused: 'true',
       defaults: { duration: 0.5 },
       scrollTrigger: {
-        trigger: '.intro',
+        trigger: '#intro',
         toggleActions: 'play none none reverse'
       }
     })
@@ -47,22 +44,21 @@ const HomePage = () => {
       paused: 'true',
       defaults: { duration: 0.5 },
       scrollTrigger: {
-        trigger: '.intro',
+        trigger: '#intro',
         toggleActions: 'play none none reset'
       }
     })
+
     mm.add(
       {
-        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
         isDesktop: `(min-width: ${breakPoint}px)`,
         isMobile: `(max-width: ${breakPoint - 1}px)`
       },
       (context) => {
-        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
         let { isDesktop } = context.conditions
 
         loadFirstView.fromTo(
-          '.firstview__heading',
+          '.homepage .firstview__heading',
           {
             opacity: 1
           },
@@ -73,106 +69,106 @@ const HomePage = () => {
 
         if (isDesktop) {
           loadIntro
-            .to('.intro__left', {
+            .to('.homepage .intro__left', {
               opacity: 1,
               delay: 1
             })
-            .to('.intro__left .omoty', {
+            .to('.homepage .intro__left .omoty', {
               x: 0,
               delay: 0.5
             })
-            .to('.intro__right', {
+            .to('.homepage .intro__right', {
               opacity: 1,
               onComplete: () => {
-                refScroll.classList.add('fade')
+                refScroll.current.classList.add('fade')
               }
             })
         } else {
           loadIntro
-            .to('.intro__left', {
+            .to('.homepage .intro__left', {
               opacity: 1,
               delay: 1
             })
-            .to('.intro__left .omoty', {
+            .to('.homepage .intro__left .omoty', {
               opacity: 0,
               duration: 0.5,
               delay: 0.5
             })
-            .to('.intro__right', {
+            .to('.homepage .intro__right', {
               opacity: 1,
               onComplete: () => {
-                refScroll.classList.add('fade')
+                refScroll.current.classList.add('fade')
               }
             })
         }
-
-        return () => {
-          // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
-          // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
-        }
+        return () => {}
       }
     )
 
-    // action sections
-    const sections = document.querySelectorAll('.vertical-scrolling')
-    sections.forEach((section, i) => {
+    // go to sections
+    const sections = document.querySelectorAll('.homepage .vertical-scrolling')
+    sections.forEach((section, index) => {
       ScrollTrigger.create({
         trigger: section,
         start: 'top bottom-=1',
         end: 'bottom top+=1',
-        onEnter: () => goToSection(section, i),
-        onEnterBack: () => goToSection(section, i)
+        onEnter: () => goToSection(index),
+        onEnterBack: () => goToSection(index)
       })
     })
-    const goToSection = (section, i) => {
-      fullpage.classList.remove('snap-scroll')
 
-      if (i === 0) {
-        refScroll.classList.remove('fade')
-      }
+    const goToSection = (index) => {
+      refFullpage.current.classList.remove('snap-scroll')
 
-      if (i === 1) {
-        loadFirstView.play()
-        loadIntro.play()
+      switch (index) {
+        case 0:
+          refScroll.current.classList.remove('fade')
 
-        gsap.to('.intro', {
-          opacity: 1,
-          delay: 1,
-          duration: 0.5
-        })
-        gsap.to('.projects__container', {
-          opacity: 0,
-          duration: 0.5
-        })
-      }
+          gsap.to('.homepage .intro__left, .homepage .intro__right, .homepage .projects', {
+            opacity: 0,
+            duration: 0.3
+          })
+          break
+        case 1:
+          loadFirstView.play()
+          loadIntro.play()
 
-      if (i === 2) {
-        refScroll.classList.add('fade')
+          gsap.to('#projects', {
+            opacity: 0,
+            duration: 0.3
+          })
+          gsap.to('#intro', {
+            opacity: 1,
+            delay: 0.5,
+            duration: 0.5
+          })
+          break
+        case 2:
+          refScroll.current.classList.add('fade')
 
-        gsap.to('.intro', {
-          opacity: 0,
-          duration: 0.5
-        })
-        gsap.to('.projects__container', {
-          opacity: 1,
-          delay: 1,
-          duration: 0.5
-        })
-      }
-
-      if (i === 3) {
-        gsap.to('.projects__container', {
-          opacity: 0,
-          duration: 0.3
-        })
-
-        setTimeout(() => {
+          gsap.to('.homepage .intro', {
+            opacity: 0,
+            duration: 0.3
+          })
+          gsap.to('#projects', {
+            opacity: 1,
+            delay: 0.5,
+            duration: 0.5
+          })
+          break
+        case 3:
+          refScroll.current.classList.remove('fade')
           refNormal.current.classList.add('fade')
-          // fullpage.classList.add('snap-scroll')
-        }, 500)
-        refScroll.classList.remove('fade')
-      } else {
-        fullpage.classList.remove('snap-scroll')
+
+          gsap.to('#projects', {
+            opacity: 0,
+            duration: 0.3
+          })
+          break
+
+        default:
+          refFullpage.current.classList.remove('snap-scroll')
+          break
       }
     }
 
@@ -181,7 +177,7 @@ const HomePage = () => {
       scroll.addEventListener('wheel', function (event) {
         if (event.deltaY === 100 || event.deltaY === -100) {
           event.preventDefault()
-          fullpage.scrollBy({
+          refFullpage.current.scrollBy({
             top: event.deltaY,
             behavior: 'smooth'
           })
@@ -189,70 +185,50 @@ const HomePage = () => {
       })
     })
 
-    // anchor section projects click
+    // anchor section projects handle
     let links = document.querySelectorAll('.anchor-projects')
     links.forEach((anchor, i) => {
       anchor.addEventListener('click', (e) => {
-        fullpage.style.setProperty('scroll-snap-type', 'none')
+        refFullpage.current.style.setProperty('scroll-snap-type', 'none')
       })
     })
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill())
+    }
   }, [])
 
   useEffect(() => {
-    const refFullpage = document.querySelector('.fullpage')
-    const refScroll = document.querySelector('.c-scroll')
+    const fullpage = document.getElementById('homepage')
 
     const onScroll = (e) => {
+      // remove scroll-snap when into section philosophy
       if (e.currentTarget.scrollTop > refNormal.current.offsetTop) {
-        refFullpage.classList.add('snap-scroll')
+        fullpage.classList.add('snap-scroll')
       } else if (e.currentTarget.scrollTop === refNormal.current.offsetTop) {
-        refFullpage.classList.remove('snap-scroll')
+        fullpage.classList.remove('snap-scroll')
       }
 
-      if (e.currentTarget.scrollTop >= refNormal.current.offsetTop) {
-        refScroll.classList.remove('fade')
-        gsap.to('.projects__container', {
-          opacity: 0,
-          duration: 0.3
-        })
-        refNormal.current.classList.add('fade')
-      }
-
-      if (e.currentTarget.scrollTop === refIntro.current.offsetTop) {
-        gsap.to('.intro', {
-          opacity: 1,
-          delay: 0.5,
-          duration: 0.5
-        })
-      }
-
+      // into section projects
       if (Math.round(e.currentTarget.scrollTop) === refProjects.current.offsetTop) {
-        refFullpage.style.setProperty('scroll-snap-type', '')
-
-        refScroll.classList.add('fade')
-        gsap.to('.intro', {
-          opacity: 0,
-          duration: 0.5
-        })
-        gsap.to('.projects__container', {
+        fullpage.style.setProperty('scroll-snap-type', '')
+        gsap.to('#projects', {
           opacity: 1,
-          delay: 0.5,
           duration: 0.5
         })
       }
     }
     // clean up code
-    refFullpage.removeEventListener('scroll', onScroll)
-    refFullpage.addEventListener('scroll', onScroll, { passive: true })
-    return () => refFullpage.removeEventListener('scroll', onScroll)
+    fullpage.removeEventListener('scroll', onScroll)
+    fullpage.addEventListener('scroll', onScroll, { passive: true })
+    return () => fullpage.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <>
       <Header />
-
-      <div className='homepage fullpage'>
-        <div className='c-scroll'>
+      <div className='homepage fullpage' id='homepage' ref={refFullpage}>
+        <div className='c-scroll' ref={refScroll}>
           <div className='line'>
             <span></span>
           </div>
