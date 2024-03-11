@@ -10,8 +10,9 @@ import 'swiper/css'
 import prototypeSlide1 from 'src/pages/Projects/Jincup/img/prototype_1.webp'
 import prototypeSlide1SP from 'src/pages/Projects/Jincup/img/prototype_1_sp.webp'
 import prototypeSlide2 from 'src/pages/Projects/Jincup/img/prototype_2.webp'
-import prototypeSlide3 from 'src/pages/Projects/Jincup/img/dialogue.webp'
-import prototypeSlide4 from 'src/pages/Projects/Jincup/img/mainvisual.webp'
+import prototypeSlide3 from 'src/pages/Projects/Jincup/img/prototype_3.webp'
+import prototypeSlide3SP from 'src/pages/Projects/Jincup/img/prototype_3_sp.webp'
+import prototypeSlide4 from 'src/pages/Projects/Jincup/img/prototype_4.webp'
 
 /* ---------------------------------- hooks --------------------------------- */
 import useWindowDimensions from 'src/hooks/useWindowDimensions'
@@ -112,7 +113,7 @@ const Prototype = () => {
                 <img src={prototypeSlide2} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
               <SwiperSlide className={styles.prototypeSlide}>
-                <img src={prototypeSlide3} alt='PROTOTYPE' loading='lazy' />
+                <img src={prototypeSlide3SP} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
               <SwiperSlide className={styles.prototypeSlide}>
                 <img src={prototypeSlide4} alt='PROTOTYPE' loading='lazy' />

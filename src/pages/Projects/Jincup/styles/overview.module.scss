@@ -75,6 +75,12 @@
       font-size: 1.6rem;
       letter-spacing: -0.4px;
       line-height: 1.8;
+
+      a {
+        display: inline;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
     }
   }
 
