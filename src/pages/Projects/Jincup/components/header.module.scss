@@ -52,6 +52,10 @@
     .right {
       opacity: 0;
       visibility: hidden;
+
+      .desc {
+        margin-right: -1px;
+      }
     }
   }
 
@@ -75,7 +79,7 @@
 .headerDesc {
   position: absolute;
   top: 130px;
-  left: 22px;
+  left: 21px;
 }
 
 .headerNav {

@@ -79,7 +79,7 @@
   }
 
   @include maxW(1023px) {
-    margin-bottom: 125px;
+    margin-bottom: 80px;
 
     .head {
       margin-bottom: 40px;
@@ -91,15 +91,15 @@
       p {
         margin-top: 10px;
         font-size: 2rem;
-        line-height: 1.55;
+        line-height: 1.4;
+        margin-left: -1px;
       }
     }
 
     .desc {
       p {
         font-size: 1.4rem;
-        letter-spacing: -0.56px;
-        line-height: 1.59;
+        line-height: 1.75;
       }
     }
   }
@@ -152,6 +152,7 @@
 
       .title {
         margin-bottom: 25px;
+        gap: 15px;
 
         h2 {
           font-size: 1.6rem;
@@ -159,22 +160,20 @@
 
         p {
           font-size: 1.2rem;
-          letter-spacing: -0.48px;
         }
       }
 
       .desc {
         font-size: 1.3rem;
-        letter-spacing: -0.52px;
-        line-height: 1.55;
+        line-height: 1.75;
       }
 
       .link {
-        margin-top: 40px;
+        margin-top: 20px;
 
         a {
           font-size: 1.3rem;
-          line-height: 1.81;
+          line-height: 1.75;
           text-underline-offset: 1px;
         }
       }

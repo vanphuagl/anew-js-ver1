@@ -37,12 +37,11 @@
     width: 100%;
     max-width: 100%;
     padding: 0 16.9082125604% 0 5.3140096618%;
-    margin: 45px auto 165px;
+    margin: 45px auto 120px;
 
     p {
       font-size: 1.4rem;
-      letter-spacing: -0.56px;
-      line-height: 1.59;
+      line-height: 1.75;
     }
   }
 }
@@ -98,8 +97,7 @@
 
       .sticky {
         position: absolute;
-        top: auto;
-        bottom: 22px;
+        top: 85px;
         transform: unset;
       }
     }
@@ -144,7 +142,7 @@
 
   @include maxW(1023px) {
     .top {
-      margin-bottom: 65px;
+      margin-bottom: 45px;
     }
 
     .bottom {
@@ -188,6 +186,7 @@
   @include maxW(1023px) {
     .items {
       display: block;
+      margin-bottom: 35px;
 
       h3 {
         font-size: 1.4rem;

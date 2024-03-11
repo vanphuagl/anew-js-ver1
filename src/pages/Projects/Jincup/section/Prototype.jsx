@@ -45,10 +45,7 @@ const Prototype = () => {
               >
                 <SwiperSlide className={styles.prototypeSlide}>
                   <img src={prototypeSlide1} alt='PROTOTYPE' loading='lazy' />
-                </SwiperSlide>
-                <SwiperSlide className={styles.prototypeSlide}>
-                  <img src={prototypeSlide4} alt='PROTOTYPE' loading='lazy' />
-                </SwiperSlide>
+                </SwiperSlide>>
               </Swiper>
             </div> */}
 
@@ -100,11 +97,11 @@ const Prototype = () => {
             </div>
 
             <Swiper
+              loop={true}
               modules={[Controller]}
               spaceBetween={0}
               slidesPerView={1}
               className={styles.prototypeSwiperWrapper}
-              // controller={{ control: controlledSwiper }}
               onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex + 1)}
               onSwiper={(swiper) => setTotalSlide(swiper.slides.length)}
             >
