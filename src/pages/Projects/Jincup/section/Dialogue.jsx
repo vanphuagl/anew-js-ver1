@@ -86,7 +86,7 @@ const Dialogue = () => {
           </div>
 
           <div className={styles.dialogueContent}>
-            <figure className={styles.dialogueThumb}>
+            <figure className={styles.dialoguePhotoStyle}>
               <img src={dialoguePhoto1} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
             </figure>
 
@@ -99,7 +99,7 @@ const Dialogue = () => {
               ))}
             </div>
 
-            <div className={styles.dialoguePhotoStyle1}>
+            <div className={styles.dialoguePhotoStyle}>
               <figure>
                 <img src={dialoguePhoto2} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
               </figure>
@@ -268,7 +268,7 @@ const Dialogue = () => {
               ))}
             </div>
 
-            <div className={styles.dialoguePhotoStyle2}>
+            <div className={styles.dialoguePhotoStyle}>
               <figure>
                 <img src={dialoguePhoto3} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
               </figure>
