@@ -17,11 +17,12 @@ const HomePage = () => {
   const refIntro = useRef(null)
   const refProjects = useRef(null)
   const refNormal = useRef(null)
-  const refScroll = useRef(null)
   const refFullpage = useRef(null)
 
   useEffect(() => {
     const scrollSnap = document.querySelectorAll('.homepage .scroll-snap')
+    const refScroll = document.getElementById('refScroll')
+
     let mm = gsap.matchMedia(),
       breakPoint = 1024
 
@@ -80,7 +81,7 @@ const HomePage = () => {
             .to('.homepage .intro__right', {
               opacity: 1,
               onComplete: () => {
-                refScroll.current.classList.add('fade')
+                refScroll.classList.add('fade')
               }
             })
         } else {
@@ -97,7 +98,7 @@ const HomePage = () => {
             .to('.homepage .intro__right', {
               opacity: 1,
               onComplete: () => {
-                refScroll.current.classList.add('fade')
+                refScroll.classList.add('fade')
               }
             })
         }
@@ -122,7 +123,7 @@ const HomePage = () => {
 
       switch (index) {
         case 0:
-          refScroll.current.classList.remove('fade')
+          refScroll.classList.remove('fade')
 
           gsap.to('.homepage .intro__left, .homepage .intro__right, .homepage .projects', {
             opacity: 0,
@@ -144,7 +145,7 @@ const HomePage = () => {
           })
           break
         case 2:
-          refScroll.current.classList.add('fade')
+          refScroll.classList.add('fade')
 
           gsap.to('.homepage .intro', {
             opacity: 0,
@@ -157,7 +158,7 @@ const HomePage = () => {
           })
           break
         case 3:
-          refScroll.current.classList.remove('fade')
+          refScroll.classList.remove('fade')
           refNormal.current.classList.add('fade')
 
           gsap.to('#projects', {
@@ -228,7 +229,7 @@ const HomePage = () => {
     <>
       <Header />
       <div className='homepage fullpage' id='homepage' ref={refFullpage}>
-        <div className='c-scroll' ref={refScroll}>
+        <div className='c-scroll' id="refScroll">
           <div className='line'>
             <span></span>
           </div>
