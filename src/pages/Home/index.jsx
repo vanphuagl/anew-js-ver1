@@ -20,6 +20,8 @@ const HomePage = () => {
   const refFullpage = useRef(null)
 
   useEffect(() => {
+    document.body.style.overflow = 'hidden'
+
     const scrollSnap = document.querySelectorAll('.homepage .scroll-snap')
     const refScroll = document.getElementById('refScroll')
 
@@ -229,7 +231,7 @@ const HomePage = () => {
     <>
       <Header />
       <div className='homepage fullpage' id='homepage' ref={refFullpage}>
-        <div className='c-scroll' id="refScroll">
+        <div className='c-scroll' id='refScroll'>
           <div className='line'>
             <span></span>
           </div>
