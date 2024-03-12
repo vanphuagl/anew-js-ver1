@@ -7,12 +7,18 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 /* ---------------------------------- image --------------------------------- */
-import prototypeSlide1 from 'src/pages/Projects/Jincup/img/prototype_1.webp'
-import prototypeSlide1SP from 'src/pages/Projects/Jincup/img/prototype_1_sp.webp'
-import prototypeSlide2 from 'src/pages/Projects/Jincup/img/prototype_2.webp'
-import prototypeSlide3 from 'src/pages/Projects/Jincup/img/prototype_3.webp'
-import prototypeSlide3SP from 'src/pages/Projects/Jincup/img/prototype_3_sp.webp'
-import prototypeSlide4 from 'src/pages/Projects/Jincup/img/prototype_4.webp'
+import prototypeSlide1 from 'src/pages/Projects/Jincup/img/prototype_01.webp'
+import prototypeSlide1SP from 'src/pages/Projects/Jincup/img/prototype_01_sp.webp'
+import prototypeSlide2 from 'src/pages/Projects/Jincup/img/prototype_02.webp'
+import prototypeSlide2SP from 'src/pages/Projects/Jincup/img/prototype_02_sp.webp'
+import prototypeSlide3 from 'src/pages/Projects/Jincup/img/prototype_03.webp'
+import prototypeSlide3SP from 'src/pages/Projects/Jincup/img/prototype_03_sp.webp'
+import prototypeSlide4 from 'src/pages/Projects/Jincup/img/prototype_04.webp'
+import prototypeSlide4SP from 'src/pages/Projects/Jincup/img/prototype_04_sp.webp'
+import prototypeSlide5 from 'src/pages/Projects/Jincup/img/prototype_05.webp'
+import prototypeSlide5SP from 'src/pages/Projects/Jincup/img/prototype_05_sp.webp'
+import prototypeSlide6 from 'src/pages/Projects/Jincup/img/prototype_06.webp'
+import prototypeSlide6SP from 'src/pages/Projects/Jincup/img/prototype_06_sp.webp'
 
 /* ---------------------------------- hooks --------------------------------- */
 import useWindowDimensions from 'src/hooks/useWindowDimensions'
@@ -83,6 +89,12 @@ const Prototype = () => {
                 <SwiperSlide className={styles.prototypeSlide}>
                   <img src={prototypeSlide4} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
+                <SwiperSlide className={styles.prototypeSlide}>
+                  <img src={prototypeSlide5} alt='PROTOTYPE' loading='lazy' />
+                </SwiperSlide>
+                <SwiperSlide className={styles.prototypeSlide}>
+                  <img src={prototypeSlide6} alt='PROTOTYPE' loading='lazy' />
+                </SwiperSlide>
               </Swiper>
             </div>
           </div>
@@ -110,13 +122,19 @@ const Prototype = () => {
                 <img src={prototypeSlide1SP} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
               <SwiperSlide className={styles.prototypeSlide}>
-                <img src={prototypeSlide2} alt='PROTOTYPE' loading='lazy' />
+                <img src={prototypeSlide2SP} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
               <SwiperSlide className={styles.prototypeSlide}>
                 <img src={prototypeSlide3SP} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
               <SwiperSlide className={styles.prototypeSlide}>
-                <img src={prototypeSlide4} alt='PROTOTYPE' loading='lazy' />
+                <img src={prototypeSlide4SP} alt='PROTOTYPE' loading='lazy' />
+              </SwiperSlide>
+              <SwiperSlide className={styles.prototypeSlide}>
+                <img src={prototypeSlide5SP} alt='PROTOTYPE' loading='lazy' />
+              </SwiperSlide>
+              <SwiperSlide className={styles.prototypeSlide}>
+                <img src={prototypeSlide6SP} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
             </Swiper>
           </div>
@@ -129,16 +147,16 @@ const Prototype = () => {
                 jincup
                 <span>anew</span>
               </h2>
-              <p>ジンカップ アニュウ</p>
+              <p>ジンカップ  アニュウ</p>
             </div>
 
             <div className={styles.prototypeDesc}>
               <p>
-                横河バイオフロンティアが取り扱う VASU
+                YOKOGAWA の協力のもと VASU
                 ジャパンのバイオプラスチック原料を、ニッシリにてブロック状に成形し、アキヒロジンが手彫りすることでジンカップアニュウのプロトタイプが誕生。あらゆる産業分野で活用でき、石油資源の消費と
                 CO2 排出の削減を可能にする VASU ジャパンのバイオプラスチック VS-90
-                を使用することで、土壌に埋めると約３ヶ月で微生物による生分解が行われる。製品化のプロセスを検討し、厚生労働省
-                370 号試験、生分解性試験、RoHS、REACH、FDA、CO2 排出量試験などの認証を進める。
+                を使用することで、最短約３ヶ月で微生物による生分解が行われる。製品化のプロセスを検討し、厚生労働省の定める食品衛生法に基づく試験、生分解性試験、RoHS、REACH、FDA、CO2
+                排出量試験などの認証を進める。
               </p>
               <p>* 2025年1月発売予定</p>
               <p>[ 特別協力 ]</p>

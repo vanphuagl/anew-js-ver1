@@ -4,24 +4,20 @@ import React, { useCallback, useRef } from 'react'
 import dialogueImg from 'src/pages/Projects/Jincup/img/dialogue.webp'
 import dialogueSpImg from 'src/pages/Projects/Jincup/img/dialogue_sp.webp'
 
-import dialoguePhoto1 from 'src/pages/Projects/Jincup/img/dialogue_1.webp'
-import dialoguePhoto2 from 'src/pages/Projects/Jincup/img/dialogue_2.webp'
-import dialoguePhoto3 from 'src/pages/Projects/Jincup/img/dialogue_3.webp'
-import dialoguePhoto4 from 'src/pages/Projects/Jincup/img/dialogue_4.webp'
-import dialoguePhoto5 from 'src/pages/Projects/Jincup/img/dialogue_5.webp'
-import dialoguePhoto6 from 'src/pages/Projects/Jincup/img/dialogue_6.webp'
-import dialoguePhoto7 from 'src/pages/Projects/Jincup/img/dialogue_7.webp'
+import dialoguePhoto1 from 'src/pages/Projects/Jincup/img/dialogue_body_01.webp'
+import dialoguePhoto2 from 'src/pages/Projects/Jincup/img/dialogue_body_02.webp'
+import dialoguePhoto3 from 'src/pages/Projects/Jincup/img/dialogue_body_03.webp'
 
-import dialogueSlide1 from 'src/pages/Projects/Jincup/img/dialogue_slide_1.webp'
-import dialogueSlide2 from 'src/pages/Projects/Jincup/img/dialogue_slide_2.webp'
-import dialogueSlide3 from 'src/pages/Projects/Jincup/img/dialogue_slide_3.webp'
-import dialogueSlide4 from 'src/pages/Projects/Jincup/img/dialogue_slide_4.webp'
-import dialogueSlide5 from 'src/pages/Projects/Jincup/img/dialogue_slide_5.webp'
-import dialogueSlide6 from 'src/pages/Projects/Jincup/img/dialogue_slide_6.webp'
-import dialogueSlide7 from 'src/pages/Projects/Jincup/img/dialogue_slide_7.webp'
-import dialogueSlide8 from 'src/pages/Projects/Jincup/img/dialogue_slide_8.webp'
-import dialogueSlide9 from 'src/pages/Projects/Jincup/img/dialogue_slide_9.webp'
-import dialogueSlide10 from 'src/pages/Projects/Jincup/img/dialogue_slide_10.webp'
+import dialogueSlide1 from 'src/pages/Projects/Jincup/img/dialogue_body_slide_01.webp'
+import dialogueSlide2 from 'src/pages/Projects/Jincup/img/dialogue_body_slide_02.webp'
+import dialogueSlide3 from 'src/pages/Projects/Jincup/img/dialogue_body_slide_03.webp'
+import dialogueSlide4 from 'src/pages/Projects/Jincup/img/dialogue_body_slide_04.webp'
+import dialogueSlide5 from 'src/pages/Projects/Jincup/img/dialogue_body_slide_05.webp'
+import dialogueSlide6 from 'src/pages/Projects/Jincup/img/dialogue_body_slide_06.webp'
+import dialogueSlide7 from 'src/pages/Projects/Jincup/img/dialogue_body_slide_07.webp'
+import dialogueSlide8 from 'src/pages/Projects/Jincup/img/dialogue_body_slide_08.webp'
+import dialogueSlide9 from 'src/pages/Projects/Jincup/img/dialogue_body_slide_09.webp'
+import dialogueSlide10 from 'src/pages/Projects/Jincup/img/dialogue_body_slide_10.webp'
 
 /* --------------------------------- swiper --------------------------------- */
 import { Navigation } from 'swiper/modules'
@@ -76,7 +72,7 @@ const Dialogue = () => {
             <div className={styles.top}>
               <p>
                 木工作家であり、デザイナー、プロデューサーの視点からも、モノづくりを展開するアキヒロジンと、anew inc.
-                ファウンダーの村上雄一による対話。より良い世界へ向けて、頭と手を動かし、未来のジンカップを考える。
+                ファウンダーの村上雄一による対話。 より良い世界へ向けて、頭と手を動かし、未来のジンカップを考える。
               </p>
             </div>
 
@@ -104,19 +100,9 @@ const Dialogue = () => {
             </div>
 
             <div className={styles.dialoguePhotoStyle1}>
-              <figure className={styles.photo1}>
+              <figure>
                 <img src={dialoguePhoto2} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
               </figure>
-
-              <div className={styles.flex}>
-                <figure className={styles.photo2}>
-                  <img src={dialoguePhoto4} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
-                </figure>
-
-                <figure className={styles.photo3}>
-                  <img src={dialoguePhoto3} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
-                </figure>
-              </div>
             </div>
 
             <div className={styles.dialogueList}>
@@ -288,18 +274,8 @@ const Dialogue = () => {
             </div>
 
             <div className={styles.dialoguePhotoStyle2}>
-              <div className={styles.flex}>
-                <figure className={styles.photo2}>
-                  <img src={dialoguePhoto6} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
-                </figure>
-
-                <figure className={styles.photo1}>
-                  <img src={dialoguePhoto5} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
-                </figure>
-              </div>
-
-              <figure className={styles.photo3}>
-                <img src={dialoguePhoto7} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
+              <figure>
+                <img src={dialoguePhoto3} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
               </figure>
             </div>
           </div>
