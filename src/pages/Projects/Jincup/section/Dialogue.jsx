@@ -100,7 +100,7 @@ const Dialogue = () => {
             </div>
 
             <div className={styles.dialoguePhotoStyle}>
-              <figure>
+              <figure className={styles.style}>
                 <img src={dialoguePhoto2} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
               </figure>
             </div>
@@ -117,13 +117,12 @@ const Dialogue = () => {
             <div className={styles.dialogueSwiper}>
               <Swiper
                 loop
-                speed="700"
+                speed='700'
                 autoplay={{
                   stopOnLastSlide: false
                 }}
                 ref={sliderRef}
                 modules={[Navigation]}
-                spaceBetween={15}
                 initialSlide='1'
                 slidesPerView='auto'
                 centeredSlides={true}
@@ -131,10 +130,12 @@ const Dialogue = () => {
                 className='dialogueSwiperWrapper'
                 breakpoints={{
                   0: {
-                    allowTouchMove: true
+                    allowTouchMove: true,
+                    spaceBetween: 10
                   },
                   1024: {
-                    allowTouchMove: false
+                    allowTouchMove: false,
+                    spaceBetween: 15
                   }
                 }}
               >
@@ -273,7 +274,7 @@ const Dialogue = () => {
             </div>
 
             <div className={styles.dialoguePhotoStyle}>
-              <figure>
+              <figure className={styles.style}>
                 <img src={dialoguePhoto3} alt='DIALOGUE: jinAKIHIRO × Yuichi Murakam' loading='lazy' />
               </figure>
             </div>

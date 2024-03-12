@@ -6,6 +6,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: var(--app-height);
   background-color: #f0f0e4;
   overflow: hidden;
   z-index: 99999;
@@ -16,10 +17,6 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-  }
-
-  @include maxW(1023px) {
-    height: var(--app-height);
   }
 }
 

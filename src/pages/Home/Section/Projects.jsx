@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 /* ---------------------------------- image --------------------------------- */
-import jincupImg from 'src/pages/Home/img/jincup.webp'
+import jincupImg from 'src/pages/Home/img/projects_jincup.webp'
 
 const Projects = () => {
   return (
