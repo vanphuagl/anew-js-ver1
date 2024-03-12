@@ -24,6 +24,15 @@
 }
 
 .jincuppage {
+  img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+    &.loaded {
+      opacity: 1;
+    }
+  }
+
   .dialogueSwiperWrapper {
     margin: 150px -31.944444444444% 0 -15.277777777778%;
 

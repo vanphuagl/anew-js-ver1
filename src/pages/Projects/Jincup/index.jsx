@@ -20,6 +20,37 @@ const JincupPage = () => {
     if (currentTheme) currentTheme = 'light'
 
     document.documentElement.setAttribute('data-theme', currentTheme)
+
+    // lazy load image
+    let observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(function (entry) {
+        if (entry.intersectionRatio > 0 || entry.isIntersecting) {
+          const image = entry.target
+          observer.unobserve(image)
+
+          if (image.hasAttribute('src')) {
+            // Image has been loaded already
+            image.classList.add('loaded')
+            return
+          }
+
+          // Image has not been loaded so load it
+          const sourceUrl = image.getAttribute('data-src')
+          image.setAttribute('src', sourceUrl)
+
+          image.onload = () => {
+            // Do stuff
+          }
+
+          // Removing the observer
+          observer.unobserve(image)
+        }
+      })
+    })
+
+    document.querySelectorAll('img').forEach((el) => {
+      observer.observe(el)
+    })
   }, [])
 
   useEffect(() => {
