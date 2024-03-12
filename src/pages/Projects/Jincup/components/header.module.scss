@@ -29,7 +29,8 @@
   }
 
   path,
-  g,line {
+  g,
+  line {
     transition: 0.2s ease;
   }
 
@@ -110,9 +111,13 @@
     position: relative;
     display: inline-block;
     color: currentColor;
+    font-variation-settings: 'wght' 500;
+    will-change: font-variation-settings;
+    transition: font-variation-settings 0.5s cubic-bezier(0.32, 0.94, 0.6, 1);
 
     &.activeLink {
       font-weight: 700;
+      font-variation-settings: 'wght' 700;
     }
 
     &::after {

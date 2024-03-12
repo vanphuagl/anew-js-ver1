@@ -11,7 +11,7 @@ const Loading = () => {
       setIsLoading(true)
     }, 2200)
     return () => {}
-  }, [])
+  }, [isLoading])
 
   return (
     <div className={`${styles.loading} ${isLoading ? `${styles.hide}` : ''}`}>

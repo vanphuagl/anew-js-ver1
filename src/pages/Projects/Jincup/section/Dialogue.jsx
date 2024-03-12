@@ -116,7 +116,11 @@ const Dialogue = () => {
 
             <div className={styles.dialogueSwiper}>
               <Swiper
-                cssMode={true}
+                loop
+                speed="700"
+                autoplay={{
+                  stopOnLastSlide: false
+                }}
                 ref={sliderRef}
                 modules={[Navigation]}
                 spaceBetween={15}

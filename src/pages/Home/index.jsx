@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react'
+import { MetaTags } from 'react-meta-tags'
 
 /* ---------------------------------- gsap ---------------------------------- */
 import { gsap } from 'gsap'
@@ -229,6 +230,10 @@ const HomePage = () => {
 
   return (
     <>
+      <MetaTags>
+        <title>anew inc. ｜ アニュウインク</title>
+      </MetaTags>
+
       <Header />
       <div className='homepage fullpage' id='homepage' ref={refFullpage}>
         <div className='c-scroll' id='refScroll'>

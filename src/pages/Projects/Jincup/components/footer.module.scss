@@ -56,6 +56,10 @@
     cursor: pointer;
     transition: 0.3s ease-in-out;
 
+    svg {
+      margin-bottom: 5px;
+    }
+
     line {
       stroke: currentColor;
     }
