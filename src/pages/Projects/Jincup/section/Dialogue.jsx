@@ -133,17 +133,24 @@ const Dialogue = () => {
                 cssMode={true}
                 ref={sliderRef}
                 modules={[Navigation]}
-                navigation={{
-                  prevEl: styles.prev,
-                  nextEl: styles.next
-                }}
                 spaceBetween={15}
                 initialSlide='1'
                 slidesPerView='auto'
                 centeredSlides={true}
                 centerInsufficientSlides={true}
-                allowTouchMove={false}
                 className={styles.dialogueSwiperWrapper}
+                breakpoints={{
+                  0: {
+                    allowTouchMove: true
+                  },
+                  1024: {
+                    allowTouchMove: false
+                  }
+                }}
+                // navigation={{
+                //   prevEl: styles.prev,
+                //   nextEl: styles.next
+                // }}
                 // slideActiveClass={styles.active}
               >
                 <SwiperSlide className={styles.dialogueSlide}>
@@ -223,6 +230,7 @@ const Dialogue = () => {
                     </g>
                   </svg>
                 </div>
+
                 <div className={styles.next} onClick={handleNext}>
                   <svg
                     role='img'

@@ -18,9 +18,7 @@
 .dialogueWrapper {
   // width: 52.7777777778%;
   // max-width: 760px;
-  // margin: 80px 15.277777777778% 250px 31.944444444444%;
   margin: 80px auto 250px;
-  // padding: 80px 15.277777777778% 250px 31.944444444444%;
   overflow: hidden;
 
   p {
@@ -260,6 +258,7 @@
 
     .photo1 {
       margin-left: 0;
+      margin-right: 22px;
     }
 
     .photo2 {
@@ -280,14 +279,14 @@
     height: 100%;
     object-fit: cover;
   }
-
-  @include maxW(1023px) {
-    margin-top: 175px;
-  }
 }
 
 .dialogueSwiperWrapper {
   margin: 200px -31.944444444444% 0 -15.277777777778%;
+
+  @include maxW(1023px) {
+    margin: 175px -22px 0 -16.908212560386%;
+  }
 }
 
 .dialogueNavigation {
@@ -305,13 +304,22 @@
       opacity: 0.8;
     }
   }
+
+  @include maxW(1023px) {
+    display: none;
+  }
 }
 
 .dialogueSlide {
-  opacity: 0.2;
   width: 52.7777777778vw;
   height: 35.21vw;
+  opacity: 0.2;
   transition: opacity 0.3s ease-in-out;
+
+  @include maxW(1023px) {
+    width: 77.777777777778vw;
+    height: 51.93vw;
+  }
 }
 
 .dialogueList {
@@ -362,7 +370,7 @@
   padding: 0 15.277777777778% 0 31.944444444444%;
 
   @include maxW(1023px) {
-    padding: 0 16.9082125604% 0 5.3140096618%;
+    padding: 0 16.9082125604% 0 22px;
   }
 }
 

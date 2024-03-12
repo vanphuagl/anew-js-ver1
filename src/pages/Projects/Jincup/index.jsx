@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
-import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { MetaTags } from 'react-meta-tags'
+
+// import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 /* -------------------------------- component ------------------------------- */
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Loading from './components/Loading'
 
 /* --------------------------------- section -------------------------------- */
 import { Mainvisual, Overview, Dialogue, Prototype } from './section'
@@ -14,7 +17,6 @@ const JincupPage = () => {
     if (!currentTheme) currentTheme = 'light'
     if (currentTheme) currentTheme = 'light'
 
-    document.body.style.overflow = 'auto'
     document.documentElement.setAttribute('data-theme', currentTheme)
   }, [])
 
@@ -28,24 +30,40 @@ const JincupPage = () => {
     return () => window.removeEventListener('resize', appHeight)
   }, [])
 
-  //<script src='https://use.typekit.net/sbn4zvv.js'></script>
-
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>jincup anew ｜ PROJECTS ｜ anew inc.</title>
-        </Helmet>
+      <MetaTags>
+        <meta name='title' content='jincup anew ｜ PROJECTS ｜ anew inc.' />
+        <meta
+          name='description'
+          content='未来のジンカップを考える。jincup anewは、土壌に埋めると約3ヶ月で分解されて土に還るジンカップのプロトタイプです。YOKOGAWAが取り扱うVASUジャパンの生分解性プラスチック原料をニッシリにてブロック状に成形し、鹿児島に届けてアキヒロジンが手彫りするというプロセスで生まれました。'
+        />
+        <meta property='og:url' content='https://anew-inc.com/projects/jincup-anew/' />
+        <meta property='og:title' content='jincup anew ｜ PROJECTS ｜ anew inc.' />
+        <meta
+          property='og:description'
+          content='未来のジンカップを考える。jincup anewは、土壌に埋めると約3ヶ月で分解されて土に還るジンカップのプロトタイプです。横河バイオフロンティアが取り扱うVASUジャパンの生分解性プラスチック原料をニッシリにてブロック状に成形し、鹿児島に届けてアキヒロジンが手彫りするというプロセスで生まれました。'
+        />
+        <meta property='og:image' content='https://anew-inc.com/ogp_jincup.jpg' />
+        <meta name='twitter:title' content='jincup anew ｜ PROJECTS ｜ anew inc.' />
+        <meta
+          name='twitter:description'
+          content='未来のジンカップを考える。jincup anewは、土壌に埋めると約3ヶ月で分解されて土に還るジンカップのプロトタイプです。横河バイオフロンティアが取り扱うVASUジャパンの生分解性プラスチック原料をニッシリにてブロック状に成形し、鹿児島に届けてアキヒロジンが手彫りするというプロセスで生まれました。'
+        />
+        <meta name='twitter:image:src' content='https://anew-inc.com/ogp_jincup.jpg' />
+        <title>jincup anew ｜ PROJECTS ｜ anew inc.</title>
+      </MetaTags>
 
-        <Header />
-        <main className='jincuppage' id='jincuppage'>
-          <Mainvisual />
-          <Overview />
-          <Dialogue />
-          <Prototype />
-        </main>
-        <Footer />
-      </HelmetProvider>
+      <Loading />
+
+      <Header />
+      <main className='jincuppage' id='jincuppage'>
+        <Mainvisual />
+        <Overview />
+        <Dialogue />
+        <Prototype />
+      </main>
+      <Footer />
     </>
   )
 }
