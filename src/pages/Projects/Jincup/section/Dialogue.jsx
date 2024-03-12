@@ -71,8 +71,8 @@ const Dialogue = () => {
           <div className={styles.dialogueDesc}>
             <div className={styles.top}>
               <p>
-                木工作家であり、デザイナー、プロデューサーの視点からも、モノづくりを展開するアキヒロジンと、anew inc.
-                ファウンダーの村上雄一による対話。 より良い世界へ向けて、頭と手を動かし、未来のジンカップを考える。
+                木工作家であり、デザイナー、プロデューサーの視点からも、モノづくりを展開するアキヒロジンと、anew
+                inc.ファウンダーの村上雄一による対話。 より良い世界へ向けて、頭と手を動かし、未来のジンカップを考える。
               </p>
             </div>
 
@@ -124,7 +124,7 @@ const Dialogue = () => {
                 slidesPerView='auto'
                 centeredSlides={true}
                 centerInsufficientSlides={true}
-                className={styles.dialogueSwiperWrapper}
+                className='dialogueSwiperWrapper'
                 breakpoints={{
                   0: {
                     allowTouchMove: true
@@ -133,40 +133,35 @@ const Dialogue = () => {
                     allowTouchMove: false
                   }
                 }}
-                // navigation={{
-                //   prevEl: styles.prev,
-                //   nextEl: styles.next
-                // }}
-                // slideActiveClass={styles.active}
               >
-                <SwiperSlide className={styles.dialogueSlide}>
+                <SwiperSlide className='dialogueSlide'>
                   <img src={dialogueSlide1} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.dialogueSlide}>
+                <SwiperSlide className='dialogueSlide'>
                   <img src={dialogueSlide2} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.dialogueSlide}>
+                <SwiperSlide className='dialogueSlide'>
                   <img src={dialogueSlide3} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.dialogueSlide}>
+                <SwiperSlide className='dialogueSlide'>
                   <img src={dialogueSlide4} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.dialogueSlide}>
+                <SwiperSlide className='dialogueSlide'>
                   <img src={dialogueSlide5} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.dialogueSlide}>
+                <SwiperSlide className='dialogueSlide'>
                   <img src={dialogueSlide6} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.dialogueSlide}>
+                <SwiperSlide className='dialogueSlide'>
                   <img src={dialogueSlide7} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.dialogueSlide}>
+                <SwiperSlide className='dialogueSlide'>
                   <img src={dialogueSlide8} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.dialogueSlide}>
+                <SwiperSlide className='dialogueSlide'>
                   <img src={dialogueSlide9} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.dialogueSlide}>
+                <SwiperSlide className='dialogueSlide'>
                   <img src={dialogueSlide10} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
               </Swiper>

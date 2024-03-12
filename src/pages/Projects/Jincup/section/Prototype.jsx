@@ -20,41 +20,20 @@ import prototypeSlide5SP from 'src/pages/Projects/Jincup/img/prototype_05_sp.web
 import prototypeSlide6 from 'src/pages/Projects/Jincup/img/prototype_06.webp'
 import prototypeSlide6SP from 'src/pages/Projects/Jincup/img/prototype_06_sp.webp'
 
-/* ---------------------------------- hooks --------------------------------- */
-import useWindowDimensions from 'src/hooks/useWindowDimensions'
-
 import styles from '../styles/prototype.module.scss'
 
 const Prototype = () => {
-  const { width } = useWindowDimensions()
   const [currentSlide, setCurrentSlide] = useState(1)
   const [totalSlide, setTotalSlide] = useState(1)
-  // const [controlledSwiper, setControlledSwiper] = useState(null)
 
   return (
     <section className={styles.prototype} id='prototype'>
       <div className={styles.prototypeContainer}>
-        {width > 1023 ? (
           <div className={`${styles.prototypeSwiper} pc-only`}>
             <div className={styles.prototypeTitle}>
               <h2>prototype</h2>
-              <div className={styles.prototypePagination} id='containerForBullets'></div>
+              <div className='prototypePagination' id='containerForBullets'></div>
             </div>
-
-            {/* <div className={styles.left}>
-              <Swiper
-                modules={[Pagination]}
-                spaceBetween={0}
-                slidesPerView={1}
-                onSwiper={setControlledSwiper}
-                allowTouchMove={false}
-                className={styles.prototypeSwiperWrapper}
-              >
-                <SwiperSlide className={styles.prototypeSlide}>
-                  <img src={prototypeSlide1} alt='PROTOTYPE' loading='lazy' />
-                </SwiperSlide>>
-              </Swiper>
-            </div> */}
 
             <div className={styles.right}>
               <Swiper
@@ -64,41 +43,40 @@ const Prototype = () => {
                 slidesPerView={2}
                 slidesPerGroup={2}
                 allowTouchMove={false}
-                className={styles.prototypeSwiperWrapper}
-                // controller={{ control: controlledSwiper }}
+                className='prototypeSwiperWrapper'
                 pagination={{
                   clickable: true,
                   el: '#containerForBullets',
                   type: 'bullets',
-                  bulletClass: styles.bullet,
-                  bulletActiveClass: styles.bulletActive,
+                  bulletClass: 'bullet',
+                  bulletActiveClass: 'bulletActive',
                   renderBullet: (index, className) => {
                     return '<span class="' + className + '">0' + (index + 1) + '</span>'
                   }
                 }}
               >
-                <SwiperSlide className={styles.prototypeSlide}>
+                <SwiperSlide className='prototypeSlide'>
                   <img src={prototypeSlide1} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.prototypeSlide}>
+                <SwiperSlide className='prototypeSlide'>
                   <img src={prototypeSlide2} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.prototypeSlide}>
+                <SwiperSlide className='prototypeSlide'>
                   <img src={prototypeSlide3} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.prototypeSlide}>
+                <SwiperSlide className='prototypeSlide'>
                   <img src={prototypeSlide4} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.prototypeSlide}>
+                <SwiperSlide className='prototypeSlide'>
                   <img src={prototypeSlide5} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
-                <SwiperSlide className={styles.prototypeSlide}>
+                <SwiperSlide className='prototypeSlide'>
                   <img src={prototypeSlide6} alt='PROTOTYPE' loading='lazy' />
                 </SwiperSlide>
               </Swiper>
             </div>
           </div>
-        ) : (
+
           <div className={`${styles.prototypeSwiperSP} sp-only`}>
             <div className={styles.prototypeTitle}>
               <h2>prototype</h2>
@@ -114,31 +92,30 @@ const Prototype = () => {
               modules={[Controller]}
               spaceBetween={0}
               slidesPerView={1}
-              className={styles.prototypeSwiperWrapper}
+              className='prototypeSwiperWrapper'
               onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex + 1)}
               onSwiper={(swiper) => setTotalSlide(swiper.slides.length)}
             >
-              <SwiperSlide className={styles.prototypeSlide}>
+              <SwiperSlide className='prototypeSlide'>
                 <img src={prototypeSlide1SP} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
-              <SwiperSlide className={styles.prototypeSlide}>
+              <SwiperSlide className='prototypeSlide'>
                 <img src={prototypeSlide2SP} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
-              <SwiperSlide className={styles.prototypeSlide}>
+              <SwiperSlide className='prototypeSlide'>
                 <img src={prototypeSlide3SP} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
-              <SwiperSlide className={styles.prototypeSlide}>
+              <SwiperSlide className='prototypeSlide'>
                 <img src={prototypeSlide4SP} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
-              <SwiperSlide className={styles.prototypeSlide}>
+              <SwiperSlide className='prototypeSlide'>
                 <img src={prototypeSlide5SP} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
-              <SwiperSlide className={styles.prototypeSlide}>
+              <SwiperSlide className='prototypeSlide'>
                 <img src={prototypeSlide6SP} alt='PROTOTYPE' loading='lazy' />
               </SwiperSlide>
             </Swiper>
           </div>
-        )}
 
         <div className={styles.prototypeContent}>
           <div className={styles.right}>
@@ -147,7 +124,7 @@ const Prototype = () => {
                 jincup
                 <span>anew</span>
               </h2>
-              <p>ジンカップ  アニュウ</p>
+              <p>ジンカップ アニュウ</p>
             </div>
 
             <div className={styles.prototypeDesc}>

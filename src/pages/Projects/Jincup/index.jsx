@@ -11,6 +11,8 @@ import Loading from './components/Loading'
 /* --------------------------------- section -------------------------------- */
 import { Mainvisual, Overview, Dialogue, Prototype } from './section'
 
+import './jincup.scss'
+
 const JincupPage = () => {
   useEffect(() => {
     let currentTheme = localStorage.getItem('data-theme')

@@ -189,55 +189,6 @@
   }
 }
 
-.dialogueSwiper {
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.dialogueSwiperWrapper {
-  margin: 200px -31.944444444444% 0 -15.277777777778%;
-
-  @include maxW(1023px) {
-    margin: 175px -22px 0 -16.908212560386%;
-  }
-}
-
-.dialogueNavigation {
-  padding: 0 15.2777777778% 0 31.9444444444%;
-  display: flex;
-  gap: 15px;
-  justify-content: flex-end;
-  margin-top: 25px;
-
-  .next,
-  .prev {
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
-  @include maxW(1023px) {
-    display: none;
-  }
-}
-
-.dialogueSlide {
-  width: 52.7777777778vw;
-  height: 35.21vw;
-  opacity: 0.2;
-  transition: opacity 0.3s ease-in-out;
-
-  @include maxW(1023px) {
-    width: 77.777777777778vw;
-    height: 51.93vw;
-  }
-}
-
 .dialogueList {
   margin-top: 120px;
 
@@ -278,6 +229,35 @@
         margin-bottom: 25px;
       }
     }
+  }
+}
+
+.dialogueSwiper {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.dialogueNavigation {
+  padding: 0 15.2777777778% 0 31.9444444444%;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 25px;
+
+  .next,
+  .prev {
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  @include maxW(1023px) {
+    display: none;
   }
 }
 

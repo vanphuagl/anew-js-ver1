@@ -1,0 +1,61 @@
+@import 'src/styles/imports/mixins';
+
+.jincuppage {
+  .dialogueSwiperWrapper {
+    margin: 200px -31.944444444444% 0 -15.277777777778%;
+
+    @include maxW(1023px) {
+      margin: 175px -22px 0 -16.908212560386%;
+    }
+  }
+
+  .dialogueSlide {
+    width: 52.7777777778vw;
+    height: 35.21vw;
+    opacity: 0.2;
+    transition: opacity 0.3s ease-in-out;
+
+    &.swiper-slide-active {
+      opacity: 1;
+    }
+
+    @include maxW(1023px) {
+      width: 77.777777777778vw;
+      height: 51.93vw;
+    }
+  }
+
+  .prototypeSwiperWrapper {
+    height: 100%;
+  }
+
+  .prototypeSlide {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include maxW(1023px) {
+      aspect-ratio: 3 / 4;
+    }
+  }
+
+  .prototypePagination {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .bullet {
+      opacity: 0.5;
+      cursor: pointer;
+      font-size: 2.4rem;
+      transition: 0.3s linear;
+      background: transparent;
+    }
+
+    .bulletActive {
+      opacity: 1;
+    }
+  }
+}
