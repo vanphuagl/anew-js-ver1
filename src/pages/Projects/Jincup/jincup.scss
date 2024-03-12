@@ -1,5 +1,28 @@
 @import 'src/styles/imports/mixins';
 
+.c-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f0e4;
+  overflow: hidden;
+  z-index: 99999;
+
+  transition: all 0.5s ease-in-out;
+
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  @include maxW(1023px) {
+    height: var(--app-height);
+  }
+}
+
 .jincuppage {
   .dialogueSwiperWrapper {
     margin: 150px -31.944444444444% 0 -15.277777777778%;

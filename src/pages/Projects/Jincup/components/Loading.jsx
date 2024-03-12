@@ -11,10 +11,10 @@ const Loading = () => {
       setIsLoading(true)
     }, 2200)
     return () => {}
-  }, [isLoading])
+  }, [])
 
   return (
-    <div className={`${styles.loading} ${isLoading ? `${styles.hide}` : ''}`}>
+    <div className={`c-loading ${isLoading ? 'hide' : ''}`}>
       <div className={styles.loadingContent}>
         <div className={styles.name}>
           <svg
