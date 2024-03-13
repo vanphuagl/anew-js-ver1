@@ -117,7 +117,7 @@ const Dialogue = () => {
             <div className={styles.dialogueSwiper}>
               <Swiper
                 loop
-                lazy
+                lazy='true'
                 speed='700'
                 autoplay={{
                   stopOnLastSlide: false
