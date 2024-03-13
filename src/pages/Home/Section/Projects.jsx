@@ -18,7 +18,7 @@ const Projects = () => {
           <p>Project 001</p>
           <div className='title'>
             <h2>
-              jincup <span>anew</span>
+              jincup <sup>anew</sup>
             </h2>
           </div>
         </Link>
