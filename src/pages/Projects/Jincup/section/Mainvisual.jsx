@@ -8,7 +8,7 @@ import styles from '../styles/mainvisual.module.scss'
 
 const Mainvisual = () => {
   return (
-    <section className={styles.mainvisual} id="mainvisual">
+    <section className={styles.mainvisual} id='mainvisual'>
       <div className={styles.mainvisualContainer}>
         <div className={styles.mainvisualImg}>
           <picture>

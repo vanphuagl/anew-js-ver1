@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-import { MetaTags } from 'react-meta-tags'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 /* ---------------------------------- gsap ---------------------------------- */
 import { gsap } from 'gsap'
@@ -251,36 +251,62 @@ const HomePage = () => {
 
   return (
     <>
-      <MetaTags>
-        <title>anew inc. ｜ アニュウインク</title>
-      </MetaTags>
+      <HelmetProvider>
+        <Helmet>
+          <meta name='title' content='anew inc. ｜ アニュウインク' />
+          <meta
+            name='description'
+            content='anew inc.はプロダクトサステナビリティの観点から「私たちはいかにしてよき祖先となれるか」というグッドアンセスターとしての可能性を追求するプロジェクトチームです。'
+          />
 
-      <Header />
-      <div className='homepage fullpage' id='homepage' ref={refFullpage}>
-        <div className='c-scroll' id='refScroll'>
-          <div className='line'>
-            <span></span>
+          <meta property='og:url' content='https://anew-inc.com' />
+          <meta property='og:title' content='anew inc. ｜ アニュウインク' />
+          <meta property='og:site_name' content='anew inc. ｜ アニュウインク' />
+          <meta
+            property='og:description'
+            content='anew inc.はプロダクトサステナビリティの観点から「私たちはいかにしてよき祖先となれるか」というグッドアンセスターとしての可能性を追求するプロジェクトチームです。'
+          />
+          <meta property='og:image' content='https://anew-inc.com/ogp.jpg' />
+
+          <meta name='twitter:card' content='summary_large_image' />
+          <meta name='twitter:site' content='anew inc. ｜ アニュウインク' />
+          <meta name='twitter:title' content='anew inc. ｜ アニュウインク' />
+          <meta
+            name='twitter:description'
+            content='anew inc.はプロダクトサステナビリティの観点から「私たちはいかにしてよき祖先となれるか」というグッドアンセスターとしての可能性を追求するプロジェクトチームです。'
+          />
+          <meta name='twitter:image:src' content='https://anew-inc.com/ogp.jpg' />
+
+          <title>anew inc. ｜ アニュウインク</title>
+        </Helmet>
+
+        <Header />
+        <div className='homepage fullpage' id='homepage' ref={refFullpage}>
+          <div className='c-scroll' id='refScroll'>
+            <div className='line'>
+              <span></span>
+            </div>
           </div>
+
+          <section className='vertical-scrolling scroll-snap vertical-firstview'>
+            <FirstView />
+          </section>
+
+          <section className='vertical-scrolling scroll-snap vertical-intro' ref={refIntro}>
+            <Intro />
+          </section>
+
+          <section className='vertical-scrolling scroll-snap vertical-projects' ref={refProjects}>
+            <Projects />
+          </section>
+
+          <section className='vertical-scrolling vertical-normal' ref={refNormal}>
+            <Philosophy />
+            <Company />
+            <Footer />
+          </section>
         </div>
-
-        <section className='vertical-scrolling scroll-snap vertical-firstview'>
-          <FirstView />
-        </section>
-
-        <section className='vertical-scrolling scroll-snap vertical-intro' ref={refIntro}>
-          <Intro />
-        </section>
-
-        <section className='vertical-scrolling scroll-snap vertical-projects' ref={refProjects}>
-          <Projects />
-        </section>
-
-        <section className='vertical-scrolling vertical-normal' ref={refNormal}>
-          <Philosophy />
-          <Company />
-          <Footer />
-        </section>
-      </div>
+      </HelmetProvider>
     </>
   )
 }

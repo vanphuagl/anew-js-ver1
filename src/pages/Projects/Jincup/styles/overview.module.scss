@@ -11,7 +11,7 @@
   span {
     font-family: var(--yugothic-fonts);
     font-weight: 500;
-    font-feature-settings: "palt" 1;
+    font-feature-settings: 'palt' 1;
   }
 
   @include maxW(1023px) {
