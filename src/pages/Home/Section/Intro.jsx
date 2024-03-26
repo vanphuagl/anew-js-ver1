@@ -17,11 +17,11 @@ const Intro = () => {
               aria-label='omoty'
             >
               <defs>
-                <clipPath id='clip-path'>
+                <clipPath id='clip-path-intro'>
                   <rect id='Rectangle_23' data-name='Rectangle 23' width={520} height='485.663' fill='#3b720e' />
                 </clipPath>
               </defs>
-              <g id='Group_45' data-name='Group 45' clipPath='url(#clip-path)'>
+              <g id='Group_45' data-name='Group 45' clipPath='url(#clip-path-intro)'>
                 <path
                   id='Path_215'
                   data-name='Path 215'

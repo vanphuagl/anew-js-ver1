@@ -30,7 +30,7 @@ const Header = () => {
     }
 
     const scrollActiveLink = () => {
-      document.querySelectorAll('.jincuppage section').forEach(function (event) {
+      document.querySelectorAll('.jincuppage section').forEach((event) => {
         if (event.getBoundingClientRect().top < 75) {
           let t = event.attributes.id.value
           setScroll(t)

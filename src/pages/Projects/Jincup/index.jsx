@@ -21,7 +21,7 @@ const JincupPage = () => {
 
     // lazy load image
     let observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(function (entry) {
+      entries.forEach((entry) => {
         if (entry.intersectionRatio > 0 || entry.isIntersecting) {
           const image = entry.target
           observer.unobserve(image)

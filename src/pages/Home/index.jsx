@@ -178,15 +178,19 @@ const HomePage = () => {
 
     // smooth scroll snap
     scrollSnap.forEach((scroll, i) => {
-      scroll.addEventListener('wheel', function (event) {
-        if (event.deltaY === 100 || event.deltaY === -100) {
-          event.preventDefault()
-          refFullpage.current.scrollBy({
-            top: event.deltaY,
-            behavior: 'smooth'
-          })
-        }
-      })
+      scroll.addEventListener(
+        'wheel',
+        (event) => {
+          if (event.deltaY === 100 || event.deltaY === -100) {
+            event.preventDefault()
+            refFullpage.current.scrollBy({
+              top: event.deltaY,
+              behavior: 'smooth'
+            })
+          }
+        },
+        { passive: true }
+      )
     })
 
     // anchor section projects handle
@@ -230,7 +234,7 @@ const HomePage = () => {
 
   useEffect(() => {
     let observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(function (entry) {
+      entries.forEach((entry) => {
         if (entry.intersectionRatio > 0 || entry.isIntersecting) {
           const image = entry.target
           observer.unobserve(image)

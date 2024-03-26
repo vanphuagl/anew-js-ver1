@@ -29,13 +29,13 @@ const Mainvisual = () => {
               aria-label='jincup x anew inc.'
             >
               <defs>
-                <clipPath id='clip-path'>
+                <clipPath id='clip-path-mainvisual'>
                   <rect id='Rectangle_36' data-name='Rectangle 36' width='118.778' height='63.578' fill='#fff' />
                 </clipPath>
               </defs>
               <g id='logo' transform='translate(-1273.479 -653)'>
                 <g id='Group_127' data-name='Group 127' transform='translate(1274.341 653)'>
-                  <g id='Group_126' data-name='Group 126' transform='translate(0 0)' clipPath='url(#clip-path)'>
+                  <g id='Group_126' data-name='Group 126' transform='translate(0 0)' clipPath='url(#clip-path-mainvisual)'>
                     <path
                       id='Path_305'
                       data-name='Path 305'

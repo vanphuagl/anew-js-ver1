@@ -88,7 +88,7 @@ const Prototype = () => {
           </div>
 
           <Swiper
-            loop={true}
+            loop
             modules={[Controller]}
             spaceBetween={0}
             slidesPerView={1}
@@ -149,7 +149,7 @@ const Prototype = () => {
                   viewBox='0 0 137.941 35'
                 >
                   <defs>
-                    <clipPath id='clip-path'>
+                    <clipPath id='clip-path-prototype'>
                       <rect id='長方形_93' data-name='長方形 93' width='137.941' height={35} fill='none' />
                     </clipPath>
                   </defs>
@@ -163,7 +163,7 @@ const Prototype = () => {
                       fill='#004f9b'
                     />
                     <g id='グループ_245' data-name='グループ 245' transform='translate(0 0)'>
-                      <g id='グループ_244' data-name='グループ 244' clippath='url(#clip-path)'>
+                      <g id='グループ_244' data-name='グループ 244' clipPath='url(#clip-path-prototype)'>
                         <path
                           id='パス_419'
                           data-name='パス 419'
@@ -550,13 +550,13 @@ const Prototype = () => {
                 viewBox='0 0 234.795 257.584'
               >
                 <defs>
-                  <clipPath id='clip-path'>
+                  <clipPath id='clip-path-logo-prototype'>
                     <rect id='Rectangle_36' data-name='Rectangle 36' width='233.103' height='124.772' fill='#5a7445' />
                   </clipPath>
                 </defs>
                 <g id='logo' transform='translate(-1273.479 -653)'>
                   <g id='Group_127' data-name='Group 127' transform='translate(1275.17 653)'>
-                    <g id='Group_126' data-name='Group 126' transform='translate(0 0)' clippath='url(#clip-path)'>
+                    <g id='Group_126' data-name='Group 126' transform='translate(0 0)' clipPath='url(#clip-path-logo-prototype)'>
                       <path
                         id='Path_305'
                         data-name='Path 305'

@@ -1,17 +1,22 @@
 import React from 'react'
-// import ReactDOM from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
-import { hydrate, render } from "react-dom";
 
 import Layout from 'src/components/Layout'
 
 import 'src/styles/styles.scss'
 
-const rootElement = document.getElementById("root");
+// import ReactDOM from 'react-dom/client'
+// import { hydrate, render } from 'react-dom'
+
+const rootElement = document.getElementById('root')
 if (rootElement.hasChildNodes()) {
-  hydrate(<Layout />, rootElement);
+  hydrateRoot(rootElement, <Layout />)
+  // hydrate(<Layout />, rootElement);
 } else {
-  render(<Layout />, rootElement);
+  const root = createRoot(rootElement)
+  root.render(<Layout />)
+  // render(<Layout />, rootElement)
 }
 
 // const root = ReactDOM.createRoot(document.getElementById('root'))
