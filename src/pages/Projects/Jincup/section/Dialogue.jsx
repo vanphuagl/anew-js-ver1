@@ -31,7 +31,7 @@ import { dialogueData1, dialogueData2, dialogueData3 } from '../utils/dialogue-d
 
 import styles from '../styles/dialogue.module.scss'
 
-const Dialogue = () => {
+const Dialogue = (props) => {
   const sliderRef = useRef(null)
 
   const handlePrev = useCallback(() => {
@@ -70,10 +70,19 @@ const Dialogue = () => {
         <div className={styles.dialogueWrapper}>
           <div className={styles.dialogueDesc}>
             <div className={styles.top}>
-              <p>
-                木工作家であり、デザイナー、プロデューサーの視点からも、モノづくりを展開するアキヒロジンと、anew
-                inc.ファウンダーの村上雄一による対話。 より良い世界へ向けて、頭と手を動かし、未来のジンカップを考える。
-              </p>
+              {props.language === 'jp' ? (
+                <p>
+                  木工作家であり、デザイナー、プロデューサーの視点からも、モノづくりを展開するアキヒロジンと、anew
+                  inc.ファウンダーの村上雄一による対話。
+                  より良い世界へ向けて、頭と手を動かし、未来のジンカップを考える。
+                </p>
+              ) : (
+                <p className={`${styles.en} sansserif-fonts`}>
+                  A dialogue between Jin Akihiro, who explores craftsmanship from the perspectives of a woodworking
+                  artist, designer, and producer, and Yuichi Murakami, the founder of anew inc. They envision the future
+                  of jincup, moving their heads and hands toward a better world.
+                </p>
+              )}
             </div>
 
             <div className={styles.bottom}>
@@ -91,12 +100,25 @@ const Dialogue = () => {
             </figure>
 
             <div className={styles.dialogueList}>
-              {dialogueData1.map((items, i) => (
-                <div className={styles.items} key={i}>
-                  <h3>{items.title}</h3>
-                  <p>{items.desc}</p>
-                </div>
-              ))}
+              {props.language === 'jp' ? (
+                <>
+                  {dialogueData1.map((items, i) => (
+                    <div className={styles.items} key={i}>
+                      <h3>{items.titleJp}</h3>
+                      <p>{items.descJp}</p>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {dialogueData1.map((items, i) => (
+                    <div className={styles.items} key={i}>
+                      <h3 className={`${styles.en} sansserif-fonts`}>{items.titleEn}</h3>
+                      <p className={`${styles.en} sansserif-fonts`}>{items.descEn}</p>
+                    </div>
+                  ))}
+                </>
+              )}
             </div>
 
             <div className={styles.dialoguePhotoStyle}>
@@ -106,12 +128,25 @@ const Dialogue = () => {
             </div>
 
             <div className={styles.dialogueList}>
-              {dialogueData2.map((items, i) => (
-                <div className={styles.items} key={i}>
-                  <h3>{items.title}</h3>
-                  <p>{items.desc}</p>
-                </div>
-              ))}
+              {props.language === 'jp' ? (
+                <>
+                  {dialogueData2.map((items, i) => (
+                    <div className={styles.items} key={i}>
+                      <h3>{items.titleJp}</h3>
+                      <p>{items.descJp}</p>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {dialogueData2.map((items, i) => (
+                    <div className={styles.items} key={i}>
+                      <h3 className={`${styles.en} sansserif-fonts`}>{items.titleEn}</h3>
+                      <p className={`${styles.en} sansserif-fonts`}>{items.descEn}</p>
+                    </div>
+                  ))}
+                </>
+              )}
             </div>
 
             <div className={styles.dialogueSwiper}>
@@ -266,12 +301,25 @@ const Dialogue = () => {
             </div>
 
             <div className={styles.dialogueList}>
-              {dialogueData3.map((items, i) => (
-                <div className={styles.items} key={i}>
-                  <h3>{items.title}</h3>
-                  <p>{items.desc}</p>
-                </div>
-              ))}
+              {props.language === 'jp' ? (
+                <>
+                  {dialogueData3.map((items, i) => (
+                    <div className={styles.items} key={i}>
+                      <h3>{items.titleJp}</h3>
+                      <p>{items.descJp}</p>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {dialogueData3.map((items, i) => (
+                    <div className={styles.items} key={i}>
+                      <h3 className={`${styles.en} sansserif-fonts`}>{items.titleEn}</h3>
+                      <p className={`${styles.en} sansserif-fonts`}>{items.descEn}</p>
+                    </div>
+                  ))}
+                </>
+              )}
             </div>
 
             <div className={styles.dialoguePhotoStyle}>

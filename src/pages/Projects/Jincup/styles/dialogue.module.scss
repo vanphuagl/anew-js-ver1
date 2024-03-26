@@ -16,8 +16,6 @@
 }
 
 .dialogueWrapper {
-  // width: 52.7777777778%;
-  // max-width: 760px;
   margin: 80px auto 250px;
   overflow: hidden;
 
@@ -27,6 +25,11 @@
     letter-spacing: -0.2px;
     font-weight: 500;
     text-align: justify;
+
+    &.en {
+      font-weight: 400;
+      letter-spacing: -0.32px;
+    }
   }
 
   p,
@@ -43,6 +46,10 @@
     p {
       font-size: 1.4rem;
       line-height: 1.75;
+
+      &.en {
+        letter-spacing: -0.28px;
+      }
     }
   }
 }
@@ -202,6 +209,11 @@
       text-decoration: underline;
       text-decoration-thickness: 2px;
       text-underline-offset: 2px;
+
+      &.en {
+        font-weight: 400;
+        letter-spacing: -0.32px;
+      }
     }
 
     p {
@@ -222,6 +234,10 @@
         font-size: 1.4rem;
         width: 100%;
         margin-bottom: 25px;
+
+        &.en {
+          letter-spacing: -0.28px;
+        }
       }
     }
   }

@@ -22,7 +22,7 @@ import prototypeSlide6SP from 'src/pages/Projects/Jincup/img/prototype_06_sp.web
 
 import styles from '../styles/prototype.module.scss'
 
-const Prototype = () => {
+const Prototype = (props) => {
   const [currentSlide, setCurrentSlide] = useState(1)
   const [totalSlide, setTotalSlide] = useState(1)
 
@@ -124,17 +124,38 @@ const Prototype = () => {
                 jincup
                 <span>anew</span>
               </h2>
-              <p>ジンカップ アニュウ</p>
+              {props.language === 'jp' ? (
+                <p>ジンカップ アニュウ</p>
+              ) : (
+                <p className={`${styles.en} sansserif-fonts`}>PRODUCT INFORMATION</p>
+              )}
             </div>
 
             <div className={styles.prototypeDesc}>
-              <p>
-                YOKOGAWAの協力のもとVASUジャパンのバイオプラスチック原料を、ニッシリにてブロック状に成形し、アキヒロジンが手彫りすることでジンカップアニュウのプロトタイプが誕生。
-                あらゆる産業分野で活用でき、石油資源の消費とCO2排出の削減を可能にするVASUジャパンのバイオプラスチックVS-90を使用することで、最短約３ヶ月で微生物による生分解が行われる。
-                製品化のプロセスを検討し、厚生労働省の定める食品衛生法に基づく試験、生分解性試験、RoHS、REACH、FDA、CO2排出量試験などの認証を進める。
-              </p>
-              <p>* 2025年1月発売予定</p>
-              <p>[ 特別協力 ]</p>
+              {props.language === 'jp' ? (
+                <>
+                  <p>
+                    YOKOGAWAの協力のもとVASUジャパンのバイオプラスチック原料を、ニッシリにてブロック状に成形し、アキヒロジンが手彫りすることでジンカップアニュウのプロトタイプが誕生。
+                    あらゆる産業分野で活用でき、石油資源の消費とCO2排出の削減を可能にするVASUジャパンのバイオプラスチックVS-90を使用することで、最短約３ヶ月で微生物による生分解が行われる。
+                    製品化のプロセスを検討し、厚生労働省の定める食品衛生法に基づく試験、生分解性試験、RoHS、REACH、FDA、CO2排出量試験などの認証を進める。
+                  </p>
+                  <p>* 2025年1月発売予定</p>
+                  <p>[ 特別協力 ]</p>
+                </>
+              ) : (
+                <>
+                  <p className={`${styles.en} sansserif-fonts`}>
+                    With the cooperation of YOKOGAWA, blocks of VASU Japan’s bioplastic material were molded by
+                    Nissilli, and the jincup anew prototype was born through hand carving by Jin Akihiro. Utilizing VASU
+                    Japan’s bioplastic VS-90, which allows for the reduction of petroleum consumption and CO2 emissions,
+                    microbial biodegradation occurs in approximately three months at the shortest. The production
+                    process includes testing based on the Food Sanitation Act established by the Ministry of Health,
+                    Labour and Welfare, as well as tests for biodegradability, RoHS, REACH, FDA, and CO2 emissions.
+                  </p>
+                  <p className={`${styles.en} sansserif-fonts`}>*Scheduled for release in January 2025.</p>
+                  <p></p>
+                </>
+              )}
             </div>
 
             <div className={styles.prototypeLink}>
@@ -556,7 +577,12 @@ const Prototype = () => {
                 </defs>
                 <g id='logo' transform='translate(-1273.479 -653)'>
                   <g id='Group_127' data-name='Group 127' transform='translate(1275.17 653)'>
-                    <g id='Group_126' data-name='Group 126' transform='translate(0 0)' clipPath='url(#clip-path-logo-prototype)'>
+                    <g
+                      id='Group_126'
+                      data-name='Group 126'
+                      transform='translate(0 0)'
+                      clipPath='url(#clip-path-logo-prototype)'
+                    >
                       <path
                         id='Path_305'
                         data-name='Path 305'

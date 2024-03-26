@@ -10,11 +10,12 @@ const navigation = [
   { id: 'prototype', name: 'prototype', href: '#prototype', current: true }
 ]
 
-const Header = () => {
+const Header = (props) => {
   const [isNav, setIsNav] = useState(false)
   const [isHeader, setIsHeader] = useState(false)
   const [isHidden, setIsHidden] = useState(false)
   const [scroll, setScroll] = useState('')
+  const [isLangugage, setIsLangugage] = useState(props.value)
 
   useEffect(() => {
     const scrollScale = () => {
@@ -47,6 +48,10 @@ const Header = () => {
       window.removeEventListener('scroll', scrollActiveLink)
     }
   }, [])
+
+  const handleChange = (newValue) => {
+    props.onValueChange(newValue)
+  }
 
   const handleLink = (path) => {
     switch (path) {
@@ -141,7 +146,6 @@ const Header = () => {
                   />
                 </g>
               </svg>
-
               <svg
                 className='sp-only'
                 role='img'
@@ -201,22 +205,52 @@ const Header = () => {
           </svg>
         </div>
 
-        <div
-          className={`
-            ${styles.headerNav} 
-            ${isNav ? `${styles.active}` : ''} 
-            ${isHidden ? `${styles.hidden}` : ''}
+        <div className={styles.headerGroup}>
+          <div
+            className={`
+              ${styles.headerNav} 
+              ${isNav ? `${styles.active}` : ''}
+              ${isHidden ? `${styles.hidden}` : ''}
           `}
-        >
-          {navigation.map((links, index) => (
-            <Link
-              key={index}
-              onClick={() => handleLink(links.id)}
-              className={`${scroll === links.id ? `${styles.activeLink}` : ''}`}
+          >
+            {navigation.map((links, index) => (
+              <Link
+                key={index}
+                onClick={() => handleLink(links.id)}
+                className={`${scroll === links.id ? `${styles.activeLink}` : ''}`}
+              >
+                {links.name}
+              </Link>
+            ))}
+          </div>
+
+          <div
+            className={`
+              ${styles.headerLang}
+              ${isNav ? `${styles.active}` : ''}
+              ${isHidden ? `${styles.hidden}` : ''}
+            `}
+          >
+            <p
+              className={`${isLangugage === 'jp' ? `${styles.active}` : ''}`}
+              onClick={() => {
+                setIsLangugage('jp')
+                handleChange('jp')
+              }}
             >
-              {links.name}
-            </Link>
-          ))}
+              jp
+            </p>
+            <span>/</span>
+            <p
+              className={`${isLangugage === 'en' ? `${styles.active}` : ''}`}
+              onClick={() => {
+                setIsLangugage('en')
+                handleChange('en')
+              }}
+            >
+              en
+            </p>
+          </div>
         </div>
       </div>
     </header>

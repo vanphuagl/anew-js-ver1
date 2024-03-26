@@ -2,6 +2,11 @@
   font-family: var(--times-fonts);
 }
 
+.sansserif-fonts {
+  font-family: var(--sans-serif-fonts) !important;
+  text-align: initial !important;
+}
+
 .jp-fonts {
   font-family: var(--jp-fonts);
 }

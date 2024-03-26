@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 /* -------------------------------- component ------------------------------- */
@@ -12,6 +12,7 @@ import { Mainvisual, Overview, Dialogue, Prototype } from './section'
 import './jincup.scss'
 
 const JincupPage = () => {
+  const [lang, setLang] = useState('jp')
   useEffect(() => {
     let currentTheme = localStorage.getItem('data-theme')
     if (!currentTheme) currentTheme = 'light'
@@ -93,12 +94,12 @@ const JincupPage = () => {
 
         <Loading />
 
-        <Header />
+        <Header value={lang} onValueChange={(value) => setLang(value)} />
         <main className='jincuppage' id='jincuppage'>
           <Mainvisual />
-          <Overview />
-          <Dialogue />
-          <Prototype />
+          <Overview language={lang} />
+          <Dialogue language={lang} />
+          <Prototype language={lang} />
         </main>
         <Footer />
       </HelmetProvider>

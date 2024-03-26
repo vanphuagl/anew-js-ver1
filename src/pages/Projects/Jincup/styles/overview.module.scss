@@ -69,6 +69,10 @@
       letter-spacing: -0.2px;
       text-align: justify;
       margin-left: -2px;
+
+      &.en {
+        letter-spacing: -0.52px;
+      }
     }
   }
 
@@ -84,6 +88,10 @@
         display: inline;
         text-decoration: underline;
         text-underline-offset: 2px;
+      }
+
+      &.en {
+        letter-spacing: -0.32px;
       }
     }
   }
@@ -103,6 +111,10 @@
         font-size: 2rem;
         line-height: 1.4;
         margin-left: -1px;
+
+        &.en {
+          letter-spacing: -0.4px;
+        }
       }
     }
 
@@ -110,6 +122,10 @@
       p {
         font-size: 1.4rem;
         line-height: 1.75;
+
+        &.en {
+          letter-spacing: -0.28px;
+        }
       }
     }
   }
@@ -144,6 +160,10 @@
       line-height: 1.8;
       letter-spacing: -0.2px;
       text-align: justify;
+
+      &.en {
+        letter-spacing: -0.28px;
+      }
     }
 
     .link {
@@ -178,6 +198,10 @@
       .desc {
         font-size: 1.3rem;
         line-height: 1.75;
+
+        &.en {
+          letter-spacing: -0.26px;
+        }
       }
 
       .link {
