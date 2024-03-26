@@ -2,7 +2,7 @@ import React from 'react'
 
 /* --------------------------------- routes --------------------------------- */
 import { BrowserRouter } from 'react-router-dom'
-import RoutesApp from 'src/routes/Routes'
+import RoutesApp from 'src/routes/routes'
 
 const Layout = () => {
   return (

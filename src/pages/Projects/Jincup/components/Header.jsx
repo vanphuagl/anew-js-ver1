@@ -228,7 +228,6 @@ const Header = (props) => {
             className={`
               ${styles.headerLang}
               ${isNav ? `${styles.active}` : ''}
-              ${isHidden ? `${styles.hidden}` : ''}
             `}
           >
             <p
