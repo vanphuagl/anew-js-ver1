@@ -19,6 +19,10 @@
     font-family: var(--yugothic-fonts);
     font-weight: 500;
     font-feature-settings: 'palt' 1;
+
+    &.en {
+      font-weight: 400;
+    }
   }
 
   .left,
