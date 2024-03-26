@@ -15,12 +15,7 @@ if (rootElement.hasChildNodes()) {
   // hydrateRoot(rootElement, <Layout />)
 } else {
   const root = createRoot(rootElement)
-  root.render(
-    <React.StrictMode>
-      <Layout />
-    </React.StrictMode>
-  )
-  // root.render(<Layout />)
+  root.render(<Layout />)
   // render(<Layout />, rootElement)
 }
 

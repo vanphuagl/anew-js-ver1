@@ -1,4 +1,5 @@
 import React, { useCallback, useRef } from 'react'
+import { CSSTransition, SwitchTransition } from 'react-transition-group'
 
 /* ---------------------------------- image --------------------------------- */
 import dialogueImg from 'src/pages/Projects/Jincup/img/dialogue.webp'
@@ -70,19 +71,32 @@ const Dialogue = (props) => {
         <div className={styles.dialogueWrapper}>
           <div className={styles.dialogueDesc}>
             <div className={styles.top}>
-              {props.language === 'jp' ? (
-                <p>
-                  木工作家であり、デザイナー、プロデューサーの視点からも、モノづくりを展開するアキヒロジンと、anew
-                  inc.ファウンダーの村上雄一による対話。
-                  より良い世界へ向けて、頭と手を動かし、未来のジンカップを考える。
-                </p>
-              ) : (
-                <p className={`${styles.en} sansserif-fonts`}>
-                  A dialogue between Jin Akihiro, who explores craftsmanship from the perspectives of a woodworking
-                  artist, designer, and producer, and Yuichi Murakami, the founder of anew inc. They envision the future
-                  of jincup, moving their heads and hands toward a better world.
-                </p>
-              )}
+              <SwitchTransition mode='out-in'>
+                <CSSTransition
+                  key={props.language}
+                  addEndListener={(node, done) => {
+                    node.addEventListener('transitionend', done, true)
+                  }}
+                  timeout={300}
+                  classNames='fade'
+                >
+                  <>
+                    {props.language === 'jp' ? (
+                      <p>
+                        木工作家であり、デザイナー、プロデューサーの視点からも、モノづくりを展開するアキヒロジンと、anew
+                        inc.ファウンダーの村上雄一による対話。
+                        より良い世界へ向けて、頭と手を動かし、未来のジンカップを考える。
+                      </p>
+                    ) : (
+                      <p className={`${styles.en} sansserif-fonts`}>
+                        A dialogue between Jin Akihiro, who explores craftsmanship from the perspectives of a
+                        woodworking artist, designer, and producer, and Yuichi Murakami, the founder of anew inc. They
+                        envision the future of jincup, moving their heads and hands toward a better world.
+                      </p>
+                    )}
+                  </>
+                </CSSTransition>
+              </SwitchTransition>
             </div>
 
             <div className={styles.bottom}>
@@ -100,25 +114,27 @@ const Dialogue = (props) => {
             </figure>
 
             <div className={styles.dialogueList}>
-              {props.language === 'jp' ? (
-                <>
-                  {dialogueData1.map((items, i) => (
+              {dialogueData1.map((items, i) => (
+                <SwitchTransition mode='out-in'>
+                  <CSSTransition
+                    key={props.language}
+                    addEndListener={(node, done) => {
+                      node.addEventListener('transitionend', done, true)
+                    }}
+                    timeout={300}
+                    classNames='fade'
+                  >
                     <div className={styles.items} key={i}>
-                      <h3>{items.titleJp}</h3>
-                      <p>{items.descJp}</p>
+                      <h3 className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                        {props.language === 'jp' ? items.titleJp : items.titleEn}
+                      </h3>
+                      <p className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                        {props.language === 'jp' ? items.descJp : items.descEn}
+                      </p>
                     </div>
-                  ))}
-                </>
-              ) : (
-                <>
-                  {dialogueData1.map((items, i) => (
-                    <div className={styles.items} key={i}>
-                      <h3 className={`${styles.en} sansserif-fonts`}>{items.titleEn}</h3>
-                      <p className={`${styles.en} sansserif-fonts`}>{items.descEn}</p>
-                    </div>
-                  ))}
-                </>
-              )}
+                  </CSSTransition>
+                </SwitchTransition>
+              ))}
             </div>
 
             <div className={styles.dialoguePhotoStyle}>
@@ -128,25 +144,27 @@ const Dialogue = (props) => {
             </div>
 
             <div className={styles.dialogueList}>
-              {props.language === 'jp' ? (
-                <>
-                  {dialogueData2.map((items, i) => (
+              {dialogueData2.map((items, i) => (
+                <SwitchTransition mode='out-in'>
+                  <CSSTransition
+                    key={props.language}
+                    addEndListener={(node, done) => {
+                      node.addEventListener('transitionend', done, true)
+                    }}
+                    timeout={300}
+                    classNames='fade'
+                  >
                     <div className={styles.items} key={i}>
-                      <h3>{items.titleJp}</h3>
-                      <p>{items.descJp}</p>
+                      <h3 className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                        {props.language === 'jp' ? items.titleJp : items.titleEn}
+                      </h3>
+                      <p className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                        {props.language === 'jp' ? items.descJp : items.descEn}
+                      </p>
                     </div>
-                  ))}
-                </>
-              ) : (
-                <>
-                  {dialogueData2.map((items, i) => (
-                    <div className={styles.items} key={i}>
-                      <h3 className={`${styles.en} sansserif-fonts`}>{items.titleEn}</h3>
-                      <p className={`${styles.en} sansserif-fonts`}>{items.descEn}</p>
-                    </div>
-                  ))}
-                </>
-              )}
+                  </CSSTransition>
+                </SwitchTransition>
+              ))}
             </div>
 
             <div className={styles.dialogueSwiper}>
@@ -301,25 +319,27 @@ const Dialogue = (props) => {
             </div>
 
             <div className={styles.dialogueList}>
-              {props.language === 'jp' ? (
-                <>
-                  {dialogueData3.map((items, i) => (
+              {dialogueData3.map((items, i) => (
+                <SwitchTransition mode='out-in'>
+                  <CSSTransition
+                    key={props.language}
+                    addEndListener={(node, done) => {
+                      node.addEventListener('transitionend', done, true)
+                    }}
+                    timeout={300}
+                    classNames='fade'
+                  >
                     <div className={styles.items} key={i}>
-                      <h3>{items.titleJp}</h3>
-                      <p>{items.descJp}</p>
+                      <h3 className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                        {props.language === 'jp' ? items.titleJp : items.titleEn}
+                      </h3>
+                      <p className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                        {props.language === 'jp' ? items.descJp : items.descEn}
+                      </p>
                     </div>
-                  ))}
-                </>
-              ) : (
-                <>
-                  {dialogueData3.map((items, i) => (
-                    <div className={styles.items} key={i}>
-                      <h3 className={`${styles.en} sansserif-fonts`}>{items.titleEn}</h3>
-                      <p className={`${styles.en} sansserif-fonts`}>{items.descEn}</p>
-                    </div>
-                  ))}
-                </>
-              )}
+                  </CSSTransition>
+                </SwitchTransition>
+              ))}
             </div>
 
             <div className={styles.dialoguePhotoStyle}>

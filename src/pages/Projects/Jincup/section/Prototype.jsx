@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { CSSTransition, SwitchTransition } from 'react-transition-group'
 
 /* --------------------------------- swiper --------------------------------- */
 import { Pagination, Controller } from 'swiper/modules'
@@ -124,38 +125,66 @@ const Prototype = (props) => {
                 jincup
                 <span>anew</span>
               </h2>
-              {props.language === 'jp' ? (
-                <p>ジンカップ アニュウ</p>
-              ) : (
-                <p className={`${styles.en} sansserif-fonts`}>PRODUCT INFORMATION</p>
-              )}
+
+              <SwitchTransition mode='out-in'>
+                <CSSTransition
+                  key={props.language}
+                  addEndListener={(node, done) => {
+                    node.addEventListener('transitionend', done, true)
+                  }}
+                  timeout={300}
+                  classNames='fade'
+                >
+                  <>
+                    {props.language === 'jp' ? (
+                      <p>ジンカップ アニュウ</p>
+                    ) : (
+                      <p className={`${styles.en} sansserif-fonts`}>PRODUCT INFORMATION</p>
+                    )}
+                  </>
+                </CSSTransition>
+              </SwitchTransition>
             </div>
 
             <div className={styles.prototypeDesc}>
-              {props.language === 'jp' ? (
-                <>
-                  <p>
-                    YOKOGAWAの協力のもとVASUジャパンのバイオプラスチック原料を、ニッシリにてブロック状に成形し、アキヒロジンが手彫りすることでジンカップアニュウのプロトタイプが誕生。
-                    あらゆる産業分野で活用でき、石油資源の消費とCO2排出の削減を可能にするVASUジャパンのバイオプラスチックVS-90を使用することで、最短約３ヶ月で微生物による生分解が行われる。
-                    製品化のプロセスを検討し、厚生労働省の定める食品衛生法に基づく試験、生分解性試験、RoHS、REACH、FDA、CO2排出量試験などの認証を進める。
-                  </p>
-                  <p>* 2025年1月発売予定</p>
-                  <p>[ 特別協力 ]</p>
-                </>
-              ) : (
-                <>
-                  <p className={`${styles.en} sansserif-fonts`}>
-                    With the cooperation of YOKOGAWA, blocks of VASU Japan’s bioplastic material were molded by
-                    Nissilli, and the jincup anew prototype was born through hand carving by Jin Akihiro. Utilizing VASU
-                    Japan’s bioplastic VS-90, which allows for the reduction of petroleum consumption and CO2 emissions,
-                    microbial biodegradation occurs in approximately three months at the shortest. The production
-                    process includes testing based on the Food Sanitation Act established by the Ministry of Health,
-                    Labour and Welfare, as well as tests for biodegradability, RoHS, REACH, FDA, and CO2 emissions.
-                  </p>
-                  <p className={`${styles.en} sansserif-fonts`}>*Scheduled for release in January 2025.</p>
-                  <p></p>
-                </>
-              )}
+              <SwitchTransition mode='out-in'>
+                <CSSTransition
+                  key={props.language}
+                  addEndListener={(node, done) => {
+                    node.addEventListener('transitionend', done, true)
+                  }}
+                  timeout={300}
+                  classNames='fade'
+                >
+                  <>
+                    {props.language === 'jp' ? (
+                      <>
+                        <p>
+                          YOKOGAWAの協力のもとVASUジャパンのバイオプラスチック原料を、ニッシリにてブロック状に成形し、アキヒロジンが手彫りすることでジンカップアニュウのプロトタイプが誕生。
+                          あらゆる産業分野で活用でき、石油資源の消費とCO2排出の削減を可能にするVASUジャパンのバイオプラスチックVS-90を使用することで、最短約３ヶ月で微生物による生分解が行われる。
+                          製品化のプロセスを検討し、厚生労働省の定める食品衛生法に基づく試験、生分解性試験、RoHS、REACH、FDA、CO2排出量試験などの認証を進める。
+                        </p>
+                        <p>* 2025年1月発売予定</p>
+                        <p>[ 特別協力 ]</p>
+                      </>
+                    ) : (
+                      <>
+                        <p className={`${styles.en} sansserif-fonts`}>
+                          With the cooperation of YOKOGAWA, blocks of VASU Japan’s bioplastic material were molded by
+                          Nissilli, and the jincup anew prototype was born through hand carving by Jin Akihiro.
+                          Utilizing VASU Japan’s bioplastic VS-90, which allows for the reduction of petroleum
+                          consumption and CO2 emissions, microbial biodegradation occurs in approximately three months
+                          at the shortest. The production process includes testing based on the Food Sanitation Act
+                          established by the Ministry of Health, Labour and Welfare, as well as tests for
+                          biodegradability, RoHS, REACH, FDA, and CO2 emissions.
+                        </p>
+                        <p className={`${styles.en} sansserif-fonts`}>*Scheduled for release in January 2025.</p>
+                        <p></p>
+                      </>
+                    )}
+                  </>
+                </CSSTransition>
+              </SwitchTransition>
             </div>
 
             <div className={styles.prototypeLink}>
