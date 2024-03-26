@@ -115,25 +115,27 @@ const Dialogue = (props) => {
 
             <div className={styles.dialogueList}>
               {dialogueData1.map((items, i) => (
-                <SwitchTransition mode='out-in'>
-                  <CSSTransition
-                    key={props.language}
-                    addEndListener={(node, done) => {
-                      node.addEventListener('transitionend', done, true)
-                    }}
-                    timeout={300}
-                    classNames='fade'
-                  >
-                    <div className={styles.items} key={i}>
-                      <h3 className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
-                        {props.language === 'jp' ? items.titleJp : items.titleEn}
-                      </h3>
-                      <p className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
-                        {props.language === 'jp' ? items.descJp : items.descEn}
-                      </p>
-                    </div>
-                  </CSSTransition>
-                </SwitchTransition>
+                <div key={i}>
+                  <SwitchTransition mode='out-in'>
+                    <CSSTransition
+                      key={props.language}
+                      addEndListener={(node, done) => {
+                        node.addEventListener('transitionend', done, true)
+                      }}
+                      timeout={300}
+                      classNames='fade'
+                    >
+                      <div className={styles.items} key={i}>
+                        <h3 className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                          {props.language === 'jp' ? items.titleJp : items.titleEn}
+                        </h3>
+                        <p className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                          {props.language === 'jp' ? items.descJp : items.descEn}
+                        </p>
+                      </div>
+                    </CSSTransition>
+                  </SwitchTransition>
+                </div>
               ))}
             </div>
 
@@ -145,25 +147,27 @@ const Dialogue = (props) => {
 
             <div className={styles.dialogueList}>
               {dialogueData2.map((items, i) => (
-                <SwitchTransition mode='out-in'>
-                  <CSSTransition
-                    key={props.language}
-                    addEndListener={(node, done) => {
-                      node.addEventListener('transitionend', done, true)
-                    }}
-                    timeout={300}
-                    classNames='fade'
-                  >
-                    <div className={styles.items} key={i}>
-                      <h3 className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
-                        {props.language === 'jp' ? items.titleJp : items.titleEn}
-                      </h3>
-                      <p className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
-                        {props.language === 'jp' ? items.descJp : items.descEn}
-                      </p>
-                    </div>
-                  </CSSTransition>
-                </SwitchTransition>
+                <div key={i}>
+                  <SwitchTransition mode='out-in'>
+                    <CSSTransition
+                      key={props.language}
+                      addEndListener={(node, done) => {
+                        node.addEventListener('transitionend', done, true)
+                      }}
+                      timeout={300}
+                      classNames='fade'
+                    >
+                      <div className={styles.items} key={i}>
+                        <h3 className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                          {props.language === 'jp' ? items.titleJp : items.titleEn}
+                        </h3>
+                        <p className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                          {props.language === 'jp' ? items.descJp : items.descEn}
+                        </p>
+                      </div>
+                    </CSSTransition>
+                  </SwitchTransition>
+                </div>
               ))}
             </div>
 
@@ -320,25 +324,27 @@ const Dialogue = (props) => {
 
             <div className={styles.dialogueList}>
               {dialogueData3.map((items, i) => (
-                <SwitchTransition mode='out-in'>
-                  <CSSTransition
-                    key={props.language}
-                    addEndListener={(node, done) => {
-                      node.addEventListener('transitionend', done, true)
-                    }}
-                    timeout={300}
-                    classNames='fade'
-                  >
-                    <div className={styles.items} key={i}>
-                      <h3 className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
-                        {props.language === 'jp' ? items.titleJp : items.titleEn}
-                      </h3>
-                      <p className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
-                        {props.language === 'jp' ? items.descJp : items.descEn}
-                      </p>
-                    </div>
-                  </CSSTransition>
-                </SwitchTransition>
+                <div key={i}>
+                  <SwitchTransition mode='out-in'>
+                    <CSSTransition
+                      key={props.language}
+                      addEndListener={(node, done) => {
+                        node.addEventListener('transitionend', done, true)
+                      }}
+                      timeout={300}
+                      classNames='fade'
+                    >
+                      <div className={styles.items} key={i}>
+                        <h3 className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                          {props.language === 'jp' ? items.titleJp : items.titleEn}
+                        </h3>
+                        <p className={props.language === 'jp' ? '' : `${styles.en} sansserif-fonts`}>
+                          {props.language === 'jp' ? items.descJp : items.descEn}
+                        </p>
+                      </div>
+                    </CSSTransition>
+                  </SwitchTransition>
+                </div>
               ))}
             </div>
 
