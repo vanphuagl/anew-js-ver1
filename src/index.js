@@ -1,5 +1,6 @@
 import React from 'react'
-import { createRoot, hydrateRoot } from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
+import { hydrate } from 'react-dom'
 import reportWebVitals from './reportWebVitals'
 
 import Layout from 'src/components/Layout'
@@ -7,15 +8,19 @@ import Layout from 'src/components/Layout'
 import 'src/styles/styles.scss'
 
 // import ReactDOM from 'react-dom/client'
-// import { hydrate, render } from 'react-dom'
 
 const rootElement = document.getElementById('root')
 if (rootElement.hasChildNodes()) {
-  hydrateRoot(rootElement, <Layout />)
-  // hydrate(<Layout />, rootElement);
+  hydrate(<Layout />, rootElement)
+  // hydrateRoot(rootElement, <Layout />)
 } else {
   const root = createRoot(rootElement)
-  root.render(<Layout />)
+  root.render(
+    <React.StrictMode>
+      <Layout />
+    </React.StrictMode>
+  )
+  // root.render(<Layout />)
   // render(<Layout />, rootElement)
 }
 
