@@ -101,29 +101,21 @@ const Overview = (props) => {
 
           <div className={styles.overviewBottom}>
             <div className={styles.content}>
-              <SwitchTransition mode='out-in'>
-                <CSSTransition
-                  key={props.language}
-                  addEndListener={(node, done) => {
-                    node.addEventListener('transitionend', done, true)
-                  }}
-                  timeout={300}
-                  classNames='fade'
-                >
-                  <>
-                    {props.language === 'jp' ? (
-                      <div className={styles.title}>
-                        <h2>jinAKIHIRO</h2>
-                        <p>アキヒロジン</p>
-                      </div>
-                    ) : (
-                      <div className={styles.title}>
-                        <h2>jin AKIHIRO</h2>
-                      </div>
-                    )}
-                  </>
-                </CSSTransition>
-              </SwitchTransition>
+              <div className={styles.title}>
+                <h2>jin AKIHIRO</h2>
+                <SwitchTransition mode='out-in'>
+                  <CSSTransition
+                    key={props.language}
+                    addEndListener={(node, done) => {
+                      node.addEventListener('transitionend', done, true)
+                    }}
+                    timeout={300}
+                    classNames='fade'
+                  >
+                    <>{props.language === 'jp' && <p>アキヒロジン</p>}</>
+                  </CSSTransition>
+                </SwitchTransition>
+              </div>
 
               <SwitchTransition mode='out-in'>
                 <CSSTransition
