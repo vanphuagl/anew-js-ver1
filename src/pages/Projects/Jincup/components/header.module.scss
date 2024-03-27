@@ -185,7 +185,7 @@
 
   @include minW(1024px) {
     &.hidden {
-      opacity: 0;
+      opacity: 0 !important;
       visibility: hidden;
       pointer-events: none;
     }

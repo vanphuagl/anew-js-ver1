@@ -158,7 +158,7 @@ const Prototype = (props) => {
                 >
                   <>
                     {props.language === 'jp' ? (
-                      <>
+                      <div>
                         <p>
                           YOKOGAWAの協力のもとVASUジャパンのバイオプラスチック原料を、ニッシリにてブロック状に成形し、アキヒロジンが手彫りすることでジンカップアニュウのプロトタイプが誕生。
                           あらゆる産業分野で活用でき、石油資源の消費とCO2排出の削減を可能にするVASUジャパンのバイオプラスチックVS-90を使用することで、最短約３ヶ月で微生物による生分解が行われる。
@@ -166,9 +166,9 @@ const Prototype = (props) => {
                         </p>
                         <p>* 2025年1月発売予定</p>
                         <p>[ 特別協力 ]</p>
-                      </>
+                      </div>
                     ) : (
-                      <>
+                      <div>
                         <p className={`${styles.en} sansserif-fonts`}>
                           With the cooperation of YOKOGAWA, blocks of VASU Japan’s bioplastic material were molded by
                           Nissilli, and the jincup anew prototype was born through hand carving by Jin Akihiro.
@@ -180,7 +180,7 @@ const Prototype = (props) => {
                         </p>
                         <p className={`${styles.en} sansserif-fonts`}>*Scheduled for release in January 2025.</p>
                         <p></p>
-                      </>
+                      </div>
                     )}
                   </>
                 </CSSTransition>

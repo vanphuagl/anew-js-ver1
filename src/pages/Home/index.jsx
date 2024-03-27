@@ -178,19 +178,15 @@ const HomePage = () => {
 
     // smooth scroll snap
     scrollSnap.forEach((scroll, i) => {
-      scroll.addEventListener(
-        'wheel',
-        (event) => {
-          if (event.deltaY === 100 || event.deltaY === -100) {
-            event.preventDefault()
-            refFullpage.current.scrollBy({
-              top: event.deltaY,
-              behavior: 'smooth'
-            })
-          }
-        },
-        { passive: true }
-      )
+      scroll.addEventListener('wheel', (event) => {
+        if (event.deltaY === 100 || event.deltaY === -100) {
+          event.preventDefault()
+          refFullpage.current.scrollBy({
+            top: event.deltaY,
+            behavior: 'smooth'
+          })
+        }
+      })
     })
 
     // anchor section projects handle

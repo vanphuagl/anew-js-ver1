@@ -14,6 +14,7 @@ const Header = (props) => {
   const [isNav, setIsNav] = useState(false)
   const [isHeader, setIsHeader] = useState(false)
   const [isHidden, setIsHidden] = useState(false)
+  const [isHiddenLang, setIsHiddenLang] = useState(false)
   const [scroll, setScroll] = useState('')
   const [isLangugage, setIsLangugage] = useState(props.value)
 
@@ -27,6 +28,9 @@ const Header = (props) => {
         document.documentElement.scrollTop + 800 > document.getElementById('prototype').offsetTop
           ? setIsHidden(true)
           : setIsHidden(false)
+          document.documentElement.scrollTop + 900 > document.getElementById('footer').offsetTop
+          ? setIsHiddenLang(true)
+          : setIsHiddenLang(false)
       }
     }
 
@@ -227,6 +231,7 @@ const Header = (props) => {
           <div
             className={`
               ${styles.headerLang}
+              ${isHiddenLang ? `${styles.hidden}` : ''}
               ${isNav ? `${styles.active}` : ''}
             `}
           >
