@@ -178,7 +178,7 @@ const HomePage = () => {
 
     // smooth scroll snap
     scrollSnap.forEach((scroll, i) => {
-      scroll.addEventListener('wheel', (event) => {
+      scroll.addEventListener('wheel', function (event) {
         if (event.deltaY === 100 || event.deltaY === -100) {
           event.preventDefault()
           refFullpage.current.scrollBy({
@@ -230,7 +230,7 @@ const HomePage = () => {
 
   useEffect(() => {
     let observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
+      entries.forEach(function (entry) {
         if (entry.intersectionRatio > 0 || entry.isIntersecting) {
           const image = entry.target
           observer.unobserve(image)

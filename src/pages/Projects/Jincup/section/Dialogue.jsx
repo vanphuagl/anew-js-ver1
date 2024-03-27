@@ -59,10 +59,30 @@ const Dialogue = (props) => {
           <div className={styles.inner}>
             <div className={styles.sticky}>
               <h2>dialogue:</h2>
-              <p className={styles.name}>
-                <span>j</span>inAKIHIRO × <br />
-                Yuichi Murakami
-              </p>
+              <SwitchTransition mode='out-in'>
+                <CSSTransition
+                  key={props.language}
+                  addEndListener={(node, done) => {
+                    node.addEventListener('transitionend', done, true)
+                  }}
+                  timeout={300}
+                  classNames='fade'
+                >
+                  <>
+                    {props.language === 'jp' ? (
+                      <p className={styles.name}>
+                        <span>j</span>inAKIHIRO × <br />
+                        Yuichi Murakami
+                      </p>
+                    ) : (
+                      <p className={styles.name}>
+                        <span>j</span>in AKIHIRO × <br />
+                        Yuichi Murakami
+                      </p>
+                    )}
+                  </>
+                </CSSTransition>
+              </SwitchTransition>
               <p className={styles.founder}>anew inc. Founder</p>
             </div>
           </div>
