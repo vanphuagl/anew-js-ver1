@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
+import ReactFullpage from '@fullpage/react-fullpage'
 
 /* ---------------------------------- gsap ---------------------------------- */
 import { gsap } from 'gsap'
-import { ScrollTrigger, ScrollToPlugin } from 'gsap/all'
 
 /* --------------------------------- section -------------------------------- */
 import { FirstView, Intro, Projects, Philosophy, Company } from './section'
@@ -15,237 +15,151 @@ import Footer from 'src/components/Footer'
 import './home.scss'
 
 const HomePage = () => {
-  const refIntro = useRef(null)
-  const refProjects = useRef(null)
-  const refNormal = useRef(null)
-  const refFullpage = useRef(null)
+  const [sectionIndex, setSectionIndex] = useState(0)
 
-  useEffect(() => {
-    document.body.style.overflow = 'hidden'
+  const hideElements = () => {
+    const first = document.querySelector('.homepage .firstview__heading')
+    const second = document.querySelector('.homepage .intro')
+    const third = document.querySelector('.homepage .projects')
+    const four = document.querySelector('.homepage .scrollable-element')
 
-    const scrollSnap = document.querySelectorAll('.homepage .scroll-snap')
-    const refScroll = document.getElementById('refScroll')
+    gsap.to([first, second, third, four], {
+      autoAlpha: 0,
+      duration: 0.3
+    })
+  }
 
+  const animateIn = ({ currentIndex }) => {
     let mm = gsap.matchMedia(),
       breakPoint = 1024
 
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
-    ScrollTrigger.defaults({
-      toggleActions: 'restart pause resume pause',
-      scroller: refFullpage.current
-    })
+    if (currentIndex === 0) {
+      gsap.to('#refScroll', {
+        autoAlpha: 0
+      })
+      gsap.to('.homepage .firstview__heading', {
+        autoAlpha: 1,
+        duration: 0.3,
+      })
+    }
 
-    // timeline
-    const loadFirstView = gsap.timeline({
-      paused: 'true',
-      defaults: { duration: 0.5 },
-      scrollTrigger: {
-        trigger: '#intro',
-        toggleActions: 'play none none reverse'
-      }
-    })
-    const loadIntro = gsap.timeline({
-      paused: 'true',
-      defaults: { duration: 0.5 },
-      scrollTrigger: {
-        trigger: '#intro',
-        toggleActions: 'play none none reset'
-      }
-    })
+    if (currentIndex === 1) {
+      mm.add(
+        {
+          isDesktop: `(min-width: ${breakPoint}px)`,
+          isMobile: `(max-width: ${breakPoint - 1}px)`
+        },
+        (context) => {
+          let { isDesktop } = context.conditions
 
-    mm.add(
-      {
-        isDesktop: `(min-width: ${breakPoint}px)`,
-        isMobile: `(max-width: ${breakPoint - 1}px)`
-      },
-      (context) => {
-        let { isDesktop } = context.conditions
-
-        loadFirstView.fromTo(
-          '.homepage .firstview__heading',
-          {
-            opacity: 1
-          },
-          {
-            opacity: 0
+          if (isDesktop) {
+            gsap
+              .timeline()
+              .to('.homepage .intro', {
+                autoAlpha: 1,
+                duration: 0.3
+              })
+              .to('.homepage .intro__left', {
+                autoAlpha: 1,
+                duration: 0.3
+              })
+              .to('.homepage .intro__left .omoty', {
+                x: 0,
+                autoAlpha: 1,
+                duration: 0.5,
+                delay: 0.5
+              })
+              .to('.homepage .intro__right', {
+                autoAlpha: 1,
+                duration: 0.5
+              })
+              .to('#refScroll', {
+                autoAlpha: 1,
+                duration: 0.5
+              })
+          } else {
+            gsap
+              .timeline()
+              .to('.homepage .intro', {
+                autoAlpha: 1,
+                duration: 0.3
+              })
+              .to('.homepage .intro__left', {
+                autoAlpha: 1,
+                duration: 0.3
+              })
+              .to('.homepage .intro__left .omoty', {
+                autoAlpha: 0,
+                duration: 0.5,
+                delay: 0.5
+              })
+              .to('.homepage .intro__right', {
+                autoAlpha: 1,
+                duration: 0.5
+              })
+              .to('#refScroll', {
+                autoAlpha: 1,
+                duration: 0.5
+              })
           }
-        )
-
-        if (isDesktop) {
-          loadIntro
-            .to('.homepage .intro__left', {
-              opacity: 1,
-              delay: 1
-            })
-            .to('.homepage .intro__left .omoty', {
-              x: 0,
-              delay: 0.5
-            })
-            .to('.homepage .intro__right', {
-              opacity: 1,
-              onComplete: () => {
-                refScroll.classList.add('fade')
-              }
-            })
-        } else {
-          loadIntro
-            .to('.homepage .intro__left', {
-              opacity: 1,
-              delay: 1
-            })
-            .to('.homepage .intro__left .omoty', {
-              opacity: 0,
-              duration: 0.5,
-              delay: 0.5
-            })
-            .to('.homepage .intro__right', {
-              opacity: 1,
-              onComplete: () => {
-                refScroll.classList.add('fade')
-              }
-            })
+          return () => {}
         }
-        return () => {}
-      }
-    )
-
-    // go to sections
-    const sections = document.querySelectorAll('.homepage .vertical-scrolling')
-    sections.forEach((section, index) => {
-      ScrollTrigger.create({
-        trigger: section,
-        start: 'top bottom-=1',
-        end: 'bottom top+=1',
-        onEnter: () => goToSection(index),
-        onEnterBack: () => goToSection(index)
-      })
-    })
-
-    const goToSection = (index) => {
-      refFullpage.current.classList.remove('snap-scroll')
-
-      switch (index) {
-        case 0:
-          refScroll.classList.remove('fade')
-
-          gsap.to('.homepage .intro__left, .homepage .intro__right, .homepage .projects', {
-            opacity: 0,
-            duration: 0.3
-          })
-          break
-        case 1:
-          loadFirstView.play()
-          loadIntro.play()
-
-          gsap.to('#projects', {
-            opacity: 0,
-            duration: 0.3
-          })
-          gsap.to('#intro', {
-            opacity: 1,
-            delay: 0.5,
-            duration: 0.5
-          })
-          break
-        case 2:
-          refScroll.classList.add('fade')
-
-          gsap.to('.homepage .intro', {
-            opacity: 0,
-            duration: 0.3
-          })
-          gsap.to('#projects', {
-            opacity: 1,
-            delay: 0.5,
-            duration: 0.5
-          })
-          break
-        case 3:
-          refScroll.classList.remove('fade')
-          refNormal.current.classList.add('fade')
-
-          gsap.to('#projects', {
-            opacity: 0,
-            duration: 0.3
-          })
-          break
-
-        default:
-          refFullpage.current.classList.remove('snap-scroll')
-          break
-      }
+      )
     }
 
-    // smooth scroll snap
-    scrollSnap.forEach((scroll, i) => {
-      scroll.addEventListener('wheel', function (event) {
-        if (event.deltaY === 100 || event.deltaY === -100) {
-          event.preventDefault()
-          refFullpage.current.scrollBy({
-            top: event.deltaY,
-            behavior: 'smooth'
-          })
-        }
+    if (currentIndex === 2) {
+      gsap.to('.homepage .projects, #refScroll', {
+        autoAlpha: 1,
+        duration: 0.3
       })
-    })
-
-    // anchor section projects handle
-    let links = document.querySelectorAll('.anchor-projects')
-    links.forEach((anchor, i) => {
-      anchor.addEventListener('click', (e) => {
-        refFullpage.current.style.setProperty('scroll-snap-type', 'none')
-      })
-    })
-
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill())
     }
-  }, [])
 
+    if (currentIndex === 3) {
+      gsap.to('#refScroll', {
+        autoAlpha: 0
+      })
+      gsap.to('.homepage .scrollable-element', {
+        autoAlpha: 1,
+        duration: 0.3
+      })
+    }
+  }
+
+  const animateOut = ({ currentIndex, direction }) => {
+    if (direction === 'down') {
+    } else {
+    }
+  }
+
+  // init fullpage.js
   useEffect(() => {
-    const fullpage = document.getElementById('homepage')
+    const normalScroll = document.querySelector('.fullpage .scrollable-element')
+    const fullpageInner = document.querySelectorAll('.fullpage .fullpage-inner')
 
-    const onScroll = (e) => {
-      // remove scroll-snap when into section philosophy
-      if (e.currentTarget.scrollTop > refNormal.current.offsetTop) {
-        fullpage.classList.add('snap-scroll')
-      } else if (e.currentTarget.scrollTop === refNormal.current.offsetTop) {
-        fullpage.classList.remove('snap-scroll')
-      }
-
-      // into section projects
-      if (Math.round(e.currentTarget.scrollTop) === refProjects.current.offsetTop) {
-        fullpage.style.setProperty('scroll-snap-type', '')
-        gsap.to('#projects', {
-          opacity: 1,
-          duration: 0.5
-        })
-      }
+    const init = () => {
+      fullpageInner.forEach((items) => {
+        items.style.height = window.innerHeight + 'px'
+      })
+      normalScroll.style.maxHeight = window.innerHeight + 'px'
     }
-    // clean up code
-    fullpage.removeEventListener('scroll', onScroll)
-    fullpage.addEventListener('scroll', onScroll, { passive: true })
-    return () => fullpage.removeEventListener('scroll', onScroll)
-  }, [])
 
-  useEffect(() => {
-    let observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(function (entry) {
-        if (entry.intersectionRatio > 0 || entry.isIntersecting) {
-          const image = entry.target
-          observer.unobserve(image)
-          const sourceUrl = image.getAttribute('data-src')
-          image.setAttribute('src', sourceUrl)
-          image.onload = () => {
-            image.classList.add('loaded')
-          }
-          observer.unobserve(image)
-        }
+    ;['resize', 'orientationchange'].forEach((evt) => {
+      window.addEventListener(evt, () => {
+        init()
       })
     })
+    init()
+    ;['scroll', 'mousewheel', 'touchmove'].forEach((evt) => {
+      normalScroll.addEventListener(evt, () => {
+        let top = -1
+        top = normalScroll.scrollTop
 
-    document.querySelectorAll('img').forEach((el) => {
-      observer.observe(el)
+        if (top > 1) {
+          window.fullpage_api.moveSectionDown()
+        } else if (top === 0) {
+          window.fullpage_api.moveTo(3)
+        }
+      })
     })
   }, [])
 
@@ -281,31 +195,61 @@ const HomePage = () => {
         </Helmet>
 
         <Header />
-        <div className='homepage fullpage' id='homepage' ref={refFullpage}>
-          <div className='c-scroll' id='refScroll'>
-            <div className='line'>
-              <span></span>
-            </div>
+
+        <div className='c-scroll' id='refScroll'>
+          <div className='line'>
+            <span></span>
           </div>
-
-          <section className='vertical-scrolling scroll-snap vertical-firstview'>
-            <FirstView />
-          </section>
-
-          <section className='vertical-scrolling scroll-snap vertical-intro' ref={refIntro}>
-            <Intro />
-          </section>
-
-          <section className='vertical-scrolling scroll-snap vertical-projects' ref={refProjects}>
-            <Projects />
-          </section>
-
-          <section className='vertical-scrolling vertical-normal' ref={refNormal}>
-            <Philosophy />
-            <Company />
-            <Footer />
-          </section>
         </div>
+
+        <ReactFullpage
+          scrollOverflow={false}
+          sectionSelector={'.vertical-scrolling'}
+          easingcss3={'cubic-bezier(.5,.03,0,.99)'}
+          normalScrollElements={'.scrollable-element'}
+          controlArrows={false}
+          scrollingSpeed={1200}
+          scrollBar={false}
+          autoScrolling={true}
+          afterLoad={(origin, destination, direction) => {
+            animateIn({ currentIndex: destination.index })
+            setSectionIndex(destination.index)
+          }}
+          onLeave={(origin, nextIndex, direction) => {
+            animateOut({ currentIndex: origin.index, direction })
+            if (sectionIndex < 3) {
+              hideElements()
+            }
+          }}
+          render={({ state, fullpageApi }) => {
+            return (
+              <div className='homepage fullpage' id='fullpage-wrapper'>
+                <section className='vertical-scrolling fp-auto-height-responsive'>
+                  <div className='fullpage-inner'>
+                    <FirstView />
+                  </div>
+                </section>
+                <section className='vertical-scrolling fp-auto-height-responsive'>
+                  <div className='fullpage-inner'>
+                    <Intro />
+                  </div>
+                </section>
+                <section className='vertical-scrolling fp-auto-height-responsive'>
+                  <div className='fullpage-inner'>
+                    <Projects />
+                  </div>
+                </section>
+                <section className='vertical-scrolling fp-auto-height'>
+                  <div className='scrollable-element'>
+                    <Philosophy />
+                    <Company />
+                    <Footer />
+                  </div>
+                </section>
+              </div>
+            )
+          }}
+        />
       </HelmetProvider>
     </>
   )
