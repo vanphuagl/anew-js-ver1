@@ -83,6 +83,37 @@ const Header = () => {
     return () => window.removeEventListener('resize', appHeight)
   }, [])
 
+  // ===== anchor link =====
+  const anchorLink = (link) => {
+    const normalScroll = document.querySelector('.scrollable-element')
+
+    switch (link) {
+      case 'projects':
+        window.fullpage_api.moveTo(3, 0)
+        normalScroll.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+        break
+      case 'philosophy':
+        window.fullpage_api.moveTo(4, 0)
+        normalScroll.scrollTo({
+          top: 10,
+          behavior: 'smooth'
+        })
+        break
+      case 'company':
+        window.fullpage_api.moveTo(4, 0)
+        normalScroll.scrollTo({
+          top: document.querySelector('.homepage .company').offsetTop,
+          behavior: 'smooth'
+        })
+        break
+      default:
+        break
+    }
+  }
+
   // ===== return =====
   return (
     <>
@@ -92,13 +123,13 @@ const Header = () => {
         </Link>
 
         <div className={styles.headerCenter}>
-          <a href='#projects' className='header_anchor anchor-projects'>
+          <a href='#projects' className='header_anchor' onClick={() => anchorLink('projects')}>
             projects,
           </a>
-          <a href='#philosophy' className='header_anchor'>
+          <a href='#philosophy' className='header_anchor' onClick={() => anchorLink('philosophy')}>
             philosophy,
           </a>
-          <a href='#company' className='header_anchor'>
+          <a href='#company' className='header_anchor' onClick={() => anchorLink('company')}>
             company
           </a>
         </div>
@@ -126,8 +157,9 @@ const Header = () => {
         <div className={styles.top}>
           <a
             href='/#projects'
-            className='header_anchor anchor-projects'
+            className='header_anchor'
             onClick={() => {
+              anchorLink('projects')
               toggleMenu()
             }}
           >
@@ -135,8 +167,9 @@ const Header = () => {
           </a>
           <a
             href='/#philosophy'
-            className='header_anchor anchor-projects'
+            className='header_anchor'
             onClick={() => {
+              anchorLink('philosophy')
               toggleMenu()
             }}
           >
@@ -144,8 +177,9 @@ const Header = () => {
           </a>
           <a
             href='/#company'
-            className='header_anchor anchor-projects'
+            className='header_anchor'
             onClick={() => {
+              anchorLink('company')
               toggleMenu()
             }}
           >

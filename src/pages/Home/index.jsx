@@ -17,6 +17,7 @@ import './home.scss'
 const HomePage = () => {
   const [sectionIndex, setSectionIndex] = useState(0)
 
+  // ===== hide element =====
   const hideElements = () => {
     const first = document.querySelector('.homepage .firstview__heading')
     const second = document.querySelector('.homepage .intro')
@@ -29,6 +30,7 @@ const HomePage = () => {
     })
   }
 
+  // ===== animate in =====
   const animateIn = ({ currentIndex }) => {
     let mm = gsap.matchMedia(),
       breakPoint = 1024
@@ -39,7 +41,7 @@ const HomePage = () => {
       })
       gsap.to('.homepage .firstview__heading', {
         autoAlpha: 1,
-        duration: 0.3,
+        duration: 0.3
       })
     }
 
@@ -125,13 +127,14 @@ const HomePage = () => {
     }
   }
 
+  // ===== animate out =====
   const animateOut = ({ currentIndex, direction }) => {
     if (direction === 'down') {
     } else {
     }
   }
 
-  // init fullpage.js
+  // ===== init fullpage.js =====
   useEffect(() => {
     const normalScroll = document.querySelector('.fullpage .scrollable-element')
     const fullpageInner = document.querySelectorAll('.fullpage .fullpage-inner')
@@ -203,6 +206,7 @@ const HomePage = () => {
         </div>
 
         <ReactFullpage
+          // anchors={['firstPage', 'secondPage', 'thirdPage']}
           scrollOverflow={false}
           sectionSelector={'.vertical-scrolling'}
           easingcss3={'cubic-bezier(.5,.03,0,.99)'}
