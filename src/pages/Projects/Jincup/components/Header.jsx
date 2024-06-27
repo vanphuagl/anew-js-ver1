@@ -28,7 +28,7 @@ const Header = (props) => {
         document.documentElement.scrollTop + 800 > document.getElementById('prototype').offsetTop
           ? setIsHidden(true)
           : setIsHidden(false)
-          document.documentElement.scrollTop + 900 > document.getElementById('footer').offsetTop
+          document.documentElement.scrollTop + 1100 > document.getElementById('footer').offsetTop
           ? setIsHiddenLang(true)
           : setIsHiddenLang(false)
       }

@@ -16,6 +16,8 @@ import './home.scss'
 
 const HomePage = () => {
   const [sectionIndex, setSectionIndex] = useState(0)
+  let ready = false
+  let animationTimeout, transitionTimeout
 
   // ===== hide element =====
   const hideElements = () => {
@@ -26,7 +28,7 @@ const HomePage = () => {
 
     gsap.to([first, second, third, four], {
       autoAlpha: 0,
-      duration: 0.3
+      duration: 0.85
     })
   }
 
@@ -37,11 +39,21 @@ const HomePage = () => {
 
     if (currentIndex === 0) {
       gsap.to('#refScroll', {
-        autoAlpha: 0
+        autoAlpha: 0,
+        duration: 0.5
       })
       gsap.to('.homepage .firstview__heading', {
         autoAlpha: 1,
-        duration: 0.3
+        duration: 0.5,
+        onComplete: () => {
+          gsap.to(
+            '#refScroll',
+            {
+              autoAlpha: 0
+            },
+            '-=0.2'
+          )
+        }
       })
     }
 
@@ -59,12 +71,16 @@ const HomePage = () => {
               .timeline()
               .to('.homepage .intro', {
                 autoAlpha: 1,
-                duration: 0.3
+                duration: 0.5
               })
-              .to('.homepage .intro__left', {
-                autoAlpha: 1,
-                duration: 0.3
-              })
+              .to(
+                '.homepage .intro__left',
+                {
+                  autoAlpha: 1,
+                  duration: 0.5
+                },
+                '-=0.3'
+              )
               .to('.homepage .intro__left .omoty', {
                 x: 0,
                 autoAlpha: 1,
@@ -84,12 +100,16 @@ const HomePage = () => {
               .timeline()
               .to('.homepage .intro', {
                 autoAlpha: 1,
-                duration: 0.3
+                duration: 0.5
               })
-              .to('.homepage .intro__left', {
-                autoAlpha: 1,
-                duration: 0.3
-              })
+              .to(
+                '.homepage .intro__left',
+                {
+                  autoAlpha: 1,
+                  duration: 0.5
+                },
+                '-=0.3'
+              )
               .to('.homepage .intro__left .omoty', {
                 autoAlpha: 0,
                 duration: 0.5,
@@ -112,26 +132,29 @@ const HomePage = () => {
     if (currentIndex === 2) {
       gsap.to('.homepage .projects, #refScroll', {
         autoAlpha: 1,
-        duration: 0.3
+        duration: 0.5
       })
     }
 
     if (currentIndex === 3) {
       gsap.to('#refScroll', {
-        autoAlpha: 0
+        autoAlpha: 0,
+        duration: 0.5
       })
       gsap.to('.homepage .scrollable-element', {
         autoAlpha: 1,
-        duration: 0.3
+        duration: 1
       })
     }
   }
 
   // ===== animate out =====
   const animateOut = ({ currentIndex, direction }) => {
-    if (direction === 'down') {
-    } else {
-    }
+    // if (direction === 'down') {
+    //   hideElements()
+    // } else {
+    //   hideElements()
+    // }
   }
 
   // ===== init fullpage.js =====
@@ -206,7 +229,6 @@ const HomePage = () => {
         </div>
 
         <ReactFullpage
-          // anchors={['firstPage', 'secondPage', 'thirdPage']}
           scrollOverflow={false}
           sectionSelector={'.vertical-scrolling'}
           easingcss3={'cubic-bezier(.5,.03,0,.99)'}
@@ -220,10 +242,29 @@ const HomePage = () => {
             setSectionIndex(destination.index)
           }}
           onLeave={(origin, nextIndex, direction) => {
-            animateOut({ currentIndex: origin.index, direction })
             if (sectionIndex < 3) {
               hideElements()
             }
+
+            if (ready) return
+            clearTimeout(animationTimeout)
+            clearTimeout(transitionTimeout)
+
+            animateOut({ currentIndex: origin.index, direction })
+            animationTimeout = setTimeout(() => {
+              ready = true
+              if (direction === 'down') {
+                window.fullpage_api.moveSectionDown()
+              } else {
+                window.fullpage_api.moveSectionUp()
+              }
+            }, 0)
+
+            transitionTimeout = setTimeout(() => {
+              ready = false
+            }, 0)
+
+            return ready
           }}
           render={({ state, fullpageApi }) => {
             return (
@@ -238,12 +279,12 @@ const HomePage = () => {
                     <Intro />
                   </div>
                 </section>
-                <section className='vertical-scrolling fp-auto-height-responsive'>
+                <section className='vertical-scrolling fp-auto-height-responsive' data-anchor='projects'>
                   <div className='fullpage-inner'>
                     <Projects />
                   </div>
                 </section>
-                <section className='vertical-scrolling fp-auto-height'>
+                <section className='vertical-scrolling fp-auto-height' data-anchor='philosophy'>
                   <div className='scrollable-element'>
                     <Philosophy />
                     <Company />
