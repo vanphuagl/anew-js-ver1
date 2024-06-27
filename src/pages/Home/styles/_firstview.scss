@@ -21,6 +21,8 @@
   
     &__heading {
       padding: 0 18px;
+      opacity: 0;
+      visibility: hidden;
   
       h2 {
         font-family: var(--times-fonts);

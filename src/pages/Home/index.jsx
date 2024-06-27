@@ -16,8 +16,10 @@ import './home.scss'
 
 const HomePage = () => {
   const [sectionIndex, setSectionIndex] = useState(0)
-  let ready = false
-  let animationTimeout, transitionTimeout
+  const [isReady, setIsReady] = useState(false)
+
+  // let ready = false
+  // let animationTimeout, transitionTimeout
 
   // ===== hide element =====
   const hideElements = () => {
@@ -28,7 +30,7 @@ const HomePage = () => {
 
     gsap.to([first, second, third, four], {
       autoAlpha: 0,
-      duration: 0.85
+      duration: 0.8
     })
   }
 
@@ -37,6 +39,7 @@ const HomePage = () => {
     let mm = gsap.matchMedia(),
       breakPoint = 1024
 
+    // section 1
     if (currentIndex === 0) {
       gsap.to('#refScroll', {
         autoAlpha: 0,
@@ -56,7 +59,7 @@ const HomePage = () => {
         }
       })
     }
-
+    // section 2
     if (currentIndex === 1) {
       mm.add(
         {
@@ -128,14 +131,17 @@ const HomePage = () => {
         }
       )
     }
-
+    // section 3
     if (currentIndex === 2) {
       gsap.to('.homepage .projects, #refScroll', {
         autoAlpha: 1,
         duration: 0.5
       })
+      gsap.to('.homepage .scrollable-element', {
+        autoAlpha: 0
+      })
     }
-
+    // section 4
     if (currentIndex === 3) {
       gsap.to('#refScroll', {
         autoAlpha: 0,
@@ -149,13 +155,9 @@ const HomePage = () => {
   }
 
   // ===== animate out =====
-  const animateOut = ({ currentIndex, direction }) => {
-    // if (direction === 'down') {
-    //   hideElements()
-    // } else {
-    //   hideElements()
-    // }
-  }
+  // const animateOut = ({ currentIndex, direction }) => {
+  //   if (direction === 'down') {} else {}
+  // }
 
   // ===== init fullpage.js =====
   useEffect(() => {
@@ -184,6 +186,39 @@ const HomePage = () => {
           window.fullpage_api.moveSectionDown()
         } else if (top === 0) {
           window.fullpage_api.moveTo(3)
+        }
+      })
+    })
+
+    // refresh page
+    ;['pageshow', 'load'].forEach((evt) => {
+      window.addEventListener(evt, () => {
+        const hash = window.location.hash.substring(1)
+
+        switch (hash) {
+          case 'projects':
+            window.fullpage_api.moveTo(3, 0)
+            normalScroll.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            })
+            break
+          case 'philosophy':
+            window.fullpage_api.moveTo(4, 0)
+            normalScroll.scrollTo({
+              top: 10,
+              behavior: 'smooth'
+            })
+            break
+          case 'company':
+            window.fullpage_api.moveTo(4, 0)
+            normalScroll.scrollTo({
+              top: document.querySelector('.homepage .company').offsetTop,
+              behavior: 'smooth'
+            })
+            break
+          default:
+            break
         }
       })
     })
@@ -240,31 +275,32 @@ const HomePage = () => {
           afterLoad={(origin, destination, direction) => {
             animateIn({ currentIndex: destination.index })
             setSectionIndex(destination.index)
+            setIsReady(true)
           }}
           onLeave={(origin, nextIndex, direction) => {
-            if (sectionIndex < 3) {
+            if (isReady && sectionIndex < 3) {
               hideElements()
             }
 
-            if (ready) return
-            clearTimeout(animationTimeout)
-            clearTimeout(transitionTimeout)
+            // if (ready) return
+            // clearTimeout(animationTimeout)
+            // clearTimeout(transitionTimeout)
 
-            animateOut({ currentIndex: origin.index, direction })
-            animationTimeout = setTimeout(() => {
-              ready = true
-              if (direction === 'down') {
-                window.fullpage_api.moveSectionDown()
-              } else {
-                window.fullpage_api.moveSectionUp()
-              }
-            }, 0)
+            // animateOut({ currentIndex: origin.index, direction })
+            // animationTimeout = setTimeout(() => {
+            //   ready = true
+            //   if (direction === 'down') {
+            //     window.fullpage_api.moveSectionDown()
+            //   } else {
+            //     window.fullpage_api.moveSectionUp()
+            //   }
+            // }, 0)
 
-            transitionTimeout = setTimeout(() => {
-              ready = false
-            }, 0)
+            // transitionTimeout = setTimeout(() => {
+            //   ready = false
+            // }, 0)
 
-            return ready
+            // return ready
           }}
           render={({ state, fullpageApi }) => {
             return (
