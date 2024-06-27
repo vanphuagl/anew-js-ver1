@@ -10,7 +10,7 @@ const Projects = () => {
       <div className='projects__container'>
         <Link to='/projects/jincup-anew' className='projects__img'>
           <figure>
-            <img data-src={jincupImg} alt='Jincup Anew' loading='lazy' width={606} height={539} />
+            <img src={jincupImg} alt='Jincup Anew' loading='lazy' width={606} height={539} />
           </figure>
         </Link>
 

@@ -228,27 +228,6 @@ const HomePage = () => {
     return () => fullpage.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => {
-    let observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(function (entry) {
-        if (entry.intersectionRatio > 0 || entry.isIntersecting) {
-          const image = entry.target
-          observer.unobserve(image)
-          const sourceUrl = image.getAttribute('data-src')
-          image.setAttribute('src', sourceUrl)
-          image.onload = () => {
-            image.classList.add('loaded')
-          }
-          observer.unobserve(image)
-        }
-      })
-    })
-
-    document.querySelectorAll('img').forEach((el) => {
-      observer.observe(el)
-    })
-  }, [])
-
   return (
     <>
       <HelmetProvider>

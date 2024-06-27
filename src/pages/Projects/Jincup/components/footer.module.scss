@@ -4,6 +4,8 @@
   padding: 0 35px 25px;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 100;
 
   @include maxW(1023px) {
     padding: 0 22px 22px;

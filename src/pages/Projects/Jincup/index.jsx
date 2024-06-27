@@ -26,7 +26,6 @@ const JincupPage = () => {
         if (entry.intersectionRatio > 0 || entry.isIntersecting) {
           const image = entry.target
           observer.unobserve(image)
-
           if (image.hasAttribute('src')) {
             // Image has been loaded already
             image.classList.add('loaded')
@@ -36,11 +35,9 @@ const JincupPage = () => {
           // Image has not been loaded so load it
           const sourceUrl = image.getAttribute('data-src')
           image.setAttribute('src', sourceUrl)
-
           image.onload = () => {
             // Do stuff
           }
-
           // Removing the observer
           observer.unobserve(image)
         }

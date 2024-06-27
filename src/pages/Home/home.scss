@@ -18,15 +18,6 @@ body {
   scroll-snap-points-y: repeat(100vh);
   scroll-behavior: smooth;
 
-  img {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-
-    &.loaded {
-      opacity: 1;
-    }
-  }
-
   &.snap-scroll {
     scroll-snap-type: none;
   }
@@ -36,8 +27,80 @@ body {
   }
 
   .vertical-scrolling {
+    width: 100%;
+    height: 100vh;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     scroll-behavior: smooth;
+
+    &.vertical-normal {
+      height: auto;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+
+      &.fade {
+        opacity: 1;
+      }
+    }
+  }
+
+  // scroll down
+  .c-scroll {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    &.fade {
+      opacity: 1;
+    }
+
+    .line {
+      display: block;
+      height: 40px;
+      width: 1px;
+      background-color: rgba($color: var(--main-text-rgb), $alpha: 0.3);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+
+      span {
+        position: absolute;
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 0%;
+        animation: scroll-down 4s infinite;
+        background-color: var(--main-text-cl);
+      }
+    }
+
+    @include maxW(1023px) {
+      right: 20px;
+      bottom: 20px;
+    }
+  }
+
+  @keyframes scroll-down {
+    0% {
+      height: 0;
+      top: 0;
+    }
+    30% {
+      height: 100%;
+      top: 0;
+    }
+    60% {
+      height: 100%;
+      top: 100%;
+    }
+    100% {
+      height: 100%;
+      top: 100%;
+    }
   }
 }

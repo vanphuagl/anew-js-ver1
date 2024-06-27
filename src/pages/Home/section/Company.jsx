@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 
 /* ------------------------------- components ------------------------------- */
-import Accordion from '../Accordion'
+import Accordion from '../components/Accordion'
 
 import { data } from '../utils/accordion-data'
 
