@@ -164,7 +164,7 @@ const Prototype = (props) => {
                           あらゆる産業分野で活用でき、石油資源の消費とCO2排出の削減を可能にするVASUジャパンのバイオプラスチックVS-90を使用することで、最短約３ヶ月で微生物による生分解が行われる。
                           製品化のプロセスを検討し、厚生労働省の定める食品衛生法に基づく試験、生分解性試験、RoHS、REACH、FDA、CO2排出量試験などの認証を進める。
                         </p>
-                        <p>* 2025年1月発売予定</p>
+                        <p>* 2025年春発売予定</p>
                         <p>[ 特別協力 ]</p>
                       </div>
                     ) : (
@@ -178,7 +178,7 @@ const Prototype = (props) => {
                           established by the Ministry of Health, Labour and Welfare, as well as tests for
                           biodegradability, RoHS, REACH, FDA, and CO2 emissions.
                         </p>
-                        <p className={`${styles.en} sansserif-fonts`}>*Scheduled for release in January 2025.</p>
+                        <p className={`${styles.en} sansserif-fonts`}>*Scheduled for release in Spring 2025.</p>
                         <p></p>
                       </div>
                     )}
